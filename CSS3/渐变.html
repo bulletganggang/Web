@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渐变</title>
+    <style>
+        body {
+            font-size: 25px;
+        }
+        .box {
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            float: left;
+            margin-left: 50px;
+            margin-top: 20px;
+        }
+        .outer::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .box1 {
+            background-image: linear-gradient(red,yellow,green);
+        }
+        .box2 {
+            background-image: linear-gradient(to right top,red,yellow,green);
+        }
+        .box3 {
+            background-image: linear-gradient(20deg,red,yellow,green);
+        }
+        .box4 {
+            background-image: linear-gradient(red 50px,yellow 100px,green 150px);
+        }
+        .box5 {
+            background-image: linear-gradient(20deg,red 50px,yellow 100px,green 150px);
+            text-align: center;
+            font-weight: bold;
+            /* color: transparent; */
+            /* -webkit-background-clip: text; */
+        }
+        .box6 {
+            background-image: radial-gradient(red,yellow,green);
+        }
+        .box7 {
+            background-image: radial-gradient(at right top,red,yellow,green);
+        }
+        .box8 {
+            background-image: radial-gradient(at 100px 50px,red,yellow,green);
+        }
+        .box9 {
+            background-image: radial-gradient(circle,red,yellow,green);
+        }
+        .box10 {
+            background-image: radial-gradient(200px 200px,red,yellow,green);
+        }
+        .box11 {
+            background-image: radial-gradient(red 50px,yellow 100px,green 150px);
+        }
+        .box12 {
+            background-image: radial-gradient(100px 50px at 150px 150px,red 50px,yellow 100px,green 150px);
+        }
+        .box13 {
+            background-image: repeating-linear-gradient(red 50px,yellow 100px,green 150px);
+        }
+        .box14 {
+            background-image: repeating-radial-gradient(red 50px,yellow 100px,green 150px);
+        }
+        .box15 {
+            width: 600px;
+            height: 800px;
+            padding: 20px;
+            border: 1px solid black;
+            margin: 0 auto;
+            background-image: repeating-linear-gradient(transparent 0px,transparent 29px,gray 30px);
+            background-clip: content-box;   
+        }
+        .box16 {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-image: radial-gradient(at 80px 80px,white,#333);
+            box-shadow: 0 0 5px black;
+        }
+    </style>
+</head>
+<body>
+    <p> linear-gradient()颜色线性渐变,deg是角度</p>
+    <div class="outer">
+        <div class="box box1">默认情况（从上到下）</div>
+        <div class="box box2">通过关键词调整线性渐变渐变的方向,在第一个颜色前加to right left top bottom</div>
+        <div class="box box3">通过角度调整线性渐变渐变的方向</div>
+        <div class="box box4">调整线性渐变的区域</div>
+        <div class="box box5">用-webkit-background-clip: text来表示</div>
+    </div>
+    <hr>
+    <p>radial-gradient()颜色圆形渐变</p>
+    <div class="outer">
+        <div class="box box6">默认情况</div>
+        <div class="box box7">通过关键词调整径向渐变圆的圆心，at left top</div>
+        <div class="box box8">通过像素值调整径向渐变圆的圆心，at 100px 50px</div>
+        <div class="box box9">通过circle关键字调整为正圆</div>
+        <div class="box box10">通过像素值相等调整为正圆</div>
+        <div class="box box11">调整径向渐变的区域</div>
+        <div class="box box12">综合写法</div>
+    </div>
+    <hr>
+    <p>repeating-linear-gradient、repeating-radial-gradient重复渐变</p>
+    <div class="outer">
+        <div class="box box13">重复线性渐变</div>
+        <div class="box box14">重复径向渐变</div>
+    </div>
+    <hr>
+    <p>渐变小测试，文本稿和圆球</p>
+    <div class="box15"></div>
+    <div class="box16"></div>
+</body>
+</html>

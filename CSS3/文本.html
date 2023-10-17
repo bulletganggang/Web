@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本</title>
+    <style>
+        body {
+            font-size: 25px;
+        }        
+        .h11 {
+            text-align: center;
+            color: white;
+            
+            /* text-shadow: 3px 3px; */
+            /* text-shadow: 3px 3px red; */
+            /* text-shadow: 3px 3px 10px red; */
+            text-shadow: 0px 0px 15px black;
+        }
+        div {
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+            font-size: 20px;
+            white-space: pre-line;
+        }
+        ul {
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+            list-style: none;
+            padding-left: 0;
+            padding: 10px;
+        }
+        li {
+            margin-bottom: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .h22 {
+            text-decoration: dashed overline red;
+        }
+        .h33 {
+            -webkit-text-stroke:3px red;
+            color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="h11">text-shadow文本阴影</h1>
+    <hr>
+    <div>
+        文本换行white-space，有pre，自动换行
+        pre-wrap超出元素的边界会自动换行
+        pre-line文字前后空格自动删除
+        nowrap强制不换行
+    </div>
+    <hr>
+    <p>text-overflow文本溢出，ellipsis会让溢出的文本变为三个点，需要搭配overflow: hidden和white-space: nowrap</p>
+    <ul>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci, deleniti!</li>
+        <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti, commodi! Labore ullam deleniti, corporis maiores culpa libero deserunt minima rerum?</li>
+        <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+        <li>Lorem, ipsum dolor.</li>
+    </ul>
+    <hr>
+    <h1 class="h22">text-decoration复合属性，如text-decoration: dashed overline red;</h1>
+    <hr>
+    <h1 class="h33">-webkit-text-strok文本描边,如-webkit-text-stroke:3px red，加上color: transparent则变空心</h1>
+</body>
+</html>

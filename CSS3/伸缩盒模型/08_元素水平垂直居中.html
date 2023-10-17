@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>08_元素水平垂直居中</title>
+    <style>
+        body {
+            font-size: 25px;
+        }
+        .outer {
+            width: 400px;
+            height: 400px;
+            background-color: #888;
+            display: flex;
+
+            /* 方案一 */
+            /* justify-content: center; */
+            /* align-items: center; */
+        }
+        .inner {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            /* 方案二 */
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <p>元素水平垂直居中两种方案</p>
+    <p>让主轴和侧轴内容都为center justify-content: center; align-items: center;</p>
+    <p>最简单的是，给需要居中的元素加个margin: auto;即可</p>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

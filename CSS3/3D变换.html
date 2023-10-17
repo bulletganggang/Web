@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D变换</title>
+    <style>
+        body {
+            font-size: 25px;
+        }
+        .outer {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 0 auto;
+            margin-top: 100px;
+            /* 开启3D空间 */
+            transform-style: preserve-3d;
+            /* 设置景深（有了透视效果，近大远小） */
+            perspective: 500px;
+            /* 设置透视点的位置 */
+            perspective-origin: 102px 102px;
+        }
+        .inner1 {
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+            transform: rotateX(50deg);
+        }
+        .inner2 {
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+            transform: rotateX(45deg);
+        }
+        .inner3 {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(0, 191, 255, 0.726);
+            transform: translate3d(50px,50px,50px);
+        }
+        .inner4 {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(0, 191, 255, 0.726);
+            transform: rotateX(315deg);
+            transform: rotateY(-35deg);
+            /* transform: rotate3d(1,1,1,30deg); */
+        }
+        .inner5 {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(0, 191, 255, 0.726);
+            /* transform: scaleZ(4) rotateY(45deg); */
+            transform: scale3d(1.5,1.5,1) rotateY(45deg);
+        }
+        .inner6 {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(0, 191, 255, 0.726);
+            transform-origin: 200px 180px;
+            transform: rotateX(-45deg);
+            /* transform: translateZ(100px) scaleZ(1) rotateY(45deg); */
+        }
+        .inner7 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            transform: rotateY(0deg);
+            backface-visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <p>transform-style: preserve-3d 开启3D空间 perspective 设置景深（有了透视效果，近大远小）</p>
+    <div class="outer">
+        <div class="inner1">你好啊</div>
+    </div>
+    <hr>
+    <p>perspective-origin 设置透视点的位置，就是观察者位置</p>
+    <p>相对坐标轴往右偏移400px， 往下移300px(相当于人蹲下300像素，然后向右移动400像素看元素)</p>
+    <div class="outer">
+        <div class="inner2">你好啊</div>
+    </div>
+    <hr>
+    <p>translate3d位移，三个值对应XYZ</p>
+    <div class="outer">
+        <div class="inner3">你好啊</div>
+    </div>
+    <hr>
+    <p>rotateX rotateY 旋转</p>
+    <div class="outer">
+        <div class="inner4">你好啊</div>
+    </div>
+    <hr>
+    <p>scale3d()缩放，不常用，一般只控制XY，Z不变化</p>
+    <div class="outer">
+        <div class="inner5">你好啊</div>
+    </div>
+    <hr>
+    <p>rotateX rotateY 旋转</p>
+    <p>旋转X或者Y时，只需要设置它相对应的值，另外一个为任何一个值都行</p>
+    <p>Y轴设置第一个值，X轴设置第二个值</p>
+    <div class="outer">
+        <div class="inner6">你好啊</div>
+    </div>
+    <hr>
+    <p>backface-visibility背部可见性，即旋转超过90度不可见</p>
+    <div class="outer">
+        <div class="inner7">你好啊</div>
+    </div>
+</body>
+</html>
