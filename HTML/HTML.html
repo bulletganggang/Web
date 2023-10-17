@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <style>
+        body {
+            width: 100%;
+        }
+
+        * {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>一级标题</h1>
+    <h2>二级标题</h2>
+    ...
+    <h6 id="h6">一直到六级标题</h6>
+
+    <p>p是段落标签</p>
+    <p>br是换行<br>符</p>
+
+    b是<b>加粗</b>，i是<i>斜体</i>，s是<s>删除</s>，u是<u>下划</u>，hr是分行线
+    <hr>
+
+    <div>div是一个大盒子，单独占一行</div>
+    <div>这是大盒子2</div>
+    <span>span是小盒子，一行可以有多个</span>
+    <span>这是小盒子2</span>
+    <span>这是小盒子3</span>
+
+    <p>img用法</p>
+    <img src="素材/img用法.png" alt="img用法参考" title="img用法参考">
+    <br>
+    <a href="https://www.bilibili.com/video/BV14J4114768/?p=26&spm_id_from=pageDriver&vd_source=4c167156bc9ed9a0699f4a8f16fc721a"
+        target="_blank">a代表着超链接，属性为href和target,target默认时为当前网页打开，设置为_blank时为新标签页打开 </a>
+    <br>
+    <a href="素材/内部链接.html" target="_blank">内部链接，href是文件夹的另外一个html</a>
+    <br>
+    <a href="">空连接</a>
+    <br>
+    <a href="素材/href_test.zip">下载链接，地址链接的是文件 or zip</a>
+    <br>
+    <p>图片链接，点击图片自动跳转</p>
+    <a href="https://www.bilibili.com/video/BV14J4114768?p=27&vd_source=4c167156bc9ed9a0699f4a8f16fc721a"
+        target="_blank"><img src="素材/img用法.png" alt="" title="点击图片跳转"></a>
+    <p>
+        锚点链接,href是要去往的地方的ID
+        <a href="#h6"><br> 这是一个锚点链接，点击会去到六级标题</a>
+    </p>
+
+    <!-- 这是一段注释 -->
+    <p>注释crtl+/</p>
+    <p>空&nbsp;格,要几个空格就+几个代码</p>
+    <img src="素材/特殊字符.png">
+
+    <p>单元格用法，table</p>
+    <table border="1" cellspacing="0">
+        <!-- cellspacing 指的是边框与字体间的距离-->
+        <caption>caption是标题</caption>
+        <thead>
+            <tr>
+                <th>thead表示头部内容</th>
+                <th>th是头部，自动加粗</th>
+                <th>这也是一个头部</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>tbody表示表格主体内容</td>
+                <td>tr是一行，td是单独一格</td>
+                <td>这是第三列</td>
+            </tr>
+            <tr>
+                <td>这是第二行</td>
+                <td colspan="2" rowspan="2">合并单元格，列合并是clospan,行合并是rowspan</td>
+            </tr>
+            <tr>
+                <td>这是第三行</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>ul代表着无序列表,unorder list</li>
+        <li>1</li>
+        <li>2</li>
+    </ul>
+
+    <ol>
+        <li>ol代表着有序列表,order list</li>
+        <li>1</li>
+        <li>2</li>
+    </ol>
+
+    <dl>
+        <dt>自定义列表dl,difination list</dt>
+        <dd>dt是名词1</dd>
+        <dd>dd是名词1的解释1</dd>
+        <dd>dl>dt>>dd</dd>
+    </dl>
+
+    <form action="xxx.htm" method="">
+        <p>form是表单元素，其中包含action、method、name</p>
+        <p>input是输入框</p>
+
+        <span>type为text，默认输入文本框</span>
+        <input type="text" name="username" id="" placeholder="请输入"><br>
+        <br>
+        <span>密码，type为password</span>
+        <input type="password" name="psw" id=""><br>
+        <br>
+
+        <span>单选框，type为radio,name必须相同才可以实现多选一</span><br>
+        1<input type="radio" name="test_radio" id="">
+        2<input type="radio" name="test_radio" id="">
+        3<input type="radio" name="test_radio" id="">
+        <br>
+        <br>
+        <span>复选框，type为checkbox</span><br>
+        1<input type="checkbox" name="test_checkbox" id="">
+        2<input type="checkbox" name="test_checkbox" id="">
+        3<input type="checkbox" name="test_checkbox" id="">
+        <br>
+        <br>
+
+        <span>input属性值，name为名字，value为体现在输入框内的文本，placeholder为在文本框中的提醒词</span><br>
+        <input type="text" name="name为名字" value="value为体现在输入框内的文本"><br>
+
+        <span>单选&多选框有checked属性值，表示默认选择</span><br>
+        1 <input type="radio" name="test_checked_radio" id="" checked="checked">
+        2 <input type="radio" name="test_checked_radio" id="">
+        单选框的checked只能有一个 <input type="radio" name="test_checked_radio" id="">
+        <br>
+        <span>多选框的checked能有多个</span><br>
+        1<input type="checkbox" name="test_checked_checkbox" id="" checked="checked">
+        2<input type="checkbox" name="test_checked_checkbox" id="" checked="checked">
+        3<input type="checkbox" name="test_checked_checkbox" id="" checked="checked">
+        <br>
+        <span>maxlength为文本框最大输入长度</span>
+        <input type="text" name="" id="" maxlength="6" value="maxlength为6">
+        <br>
+        <br>
+
+        <span>submit为提交按钮</span><br>
+        <input type="submit" name="" id="" value="value可以改变提交框里的文字,默认为提交"><br>
+
+        <span>reset为重置按钮</span><br>
+        <input type="reset" name="" id=""><br>
+
+        <span>button为普通按钮，与js搭配使用</span><br>
+        <input type="button" name="" id="" value="button"><br>
+
+        <span>file为上传文件</span><br>
+        <input type="file" name="" id=""><br>
+
+    </form>
+    <br>
+
+    <form action="">
+        <label for="test_text_lable">lable作用为点击文本，鼠标自动移到文本输入框，for后面接id</label>
+        <input type="text" name="" id="test_text_lable"><br>
+        <span>请注意，文本需要包含在label标签内</span> <br>
+        <span>lable单选框</span> <br>
+        <label for="test_radio_lable1">111</label> <input type="radio" name="test_radio_lable" id="test_radio_lable1">
+        <label for="test_radio_lable2">222</label> <input type="radio" name="test_radio_lable" id="test_radio_lable2">
+        <label for="test_radio_lable3">333</label> <input type="radio" name="test_radio_lable" id="test_radio_lable3">
+        <br>
+
+        <span>lable多选框</span><br>
+        <label for="test_checkbox_lable1">111</label> <input type="checkbox" name="test_checkbox_lable"
+            id="test_checkbox_lable1">
+        <label for="test_checkbox_lable2">222</label> <input type="checkbox" name="test_checkbox_lable"
+            id="test_checkbox_lable2">
+        <label for="test_checkbox_lable3">333</label> <input type="checkbox" name="test_checkbox_lable"
+            id="test_checkbox_lable3">
+        <br>
+    </form>
+    <br>
+
+    <form action="">
+        <span>选择元素select</span><br>
+        select:
+        <select name="" id="">
+            <option value="">选项使用option</option>
+            <option value="">111</option>
+            <option value="">222</option>
+            <option value="">333</option>
+            <option value="" selected="selected">selected为默认选项</option>
+        </select>
+    </form>
+    <br>
+
+    <form action="xxx.html">
+        <span>textarea为文本域，输入内容较多</span><br>
+        <textarea name="" id="" cols="30" rows="3">textarea row3 col30
+        </textarea>
+        <br>
+        <input type="submit">
+    </form>
+
+</body>
+
+</html>
