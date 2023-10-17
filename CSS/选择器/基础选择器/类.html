@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类选择器</title>
+    <style>
+        .abc {
+            color: red;
+            font-size: 30px;
+        }
+        .def {
+            color: aqua;
+            font-size: 40px;
+        }
+        .big {
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="abc ">类选择器，看的是类，比如是不同的标签h2,p，但class一样，样式也一样 <br> 相同的标签，class不一样，样式也不一样</h2>
+    <h2 class="abc big"> class可以有多个属性，属性中间加空格 </h2>
+    <h2 class="def">在style中，使用的是 .+class名{定义样式}，class不能用纯数字 </h2>
+    <P class="abc">TEST1</P>
+    <P class="abc">TEST2</P>
+    <P class="abc">TEST3</P>
+    <P class="def">TEST4</P>
+    <P class="def">TEST5</P>
+    <P class="def">TEST6</P>
+</body>
+</html>

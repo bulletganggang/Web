@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪元素选择器</title>
+    <style>
+        * {
+            font-size: 25px;
+        }
+        div::first-letter {
+            color: red;
+            font-size: 40px;
+        }
+        div::first-line {
+            background-color: yellow;
+        }
+        div::selection {
+            color: green;
+            background-color: wheat;
+        }
+        input::placeholder {
+            color: aqua ;
+        }
+        span::after {
+            content: " LLO";
+        }
+        span::before {
+            content: "HE ";
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, unde! Facere id enim iure unde non reiciendis? Facere, quam dolorum molestias ipsa sequi non aut? Commodi quis dolores, excepturi laboriosam eos reprehenderit, quisquam perspiciatis non neque distinctio temporibus a corrupti. Quod, quibusdam quos commodi distinctio nam sed eaque fugit. Cumque quidem ullam, dignissimos iure assumenda quae temporibus voluptatibus ipsum recusandae.
+    </div>
+    <p>一个：表示的是伪类，两个：：表示的是为伪元素</p>
+    <p>div::first-letter表示的是对div的第一个单词的第一个字进行css</p>
+    <p>div::first-line表示对div第一行进行css</p>
+    <p>div::selection表示对div中鼠标选中的内容进行css</p>
+    input::placeholder为对placeholder进行css <input type="text" placeholder="请输入">
+    <br>
+    <span>span::after对span内容末尾进行css，span::before对span内容开头进行css，content表示想添加的内容</span>
+    <p>在元素上，content 的初始值为 ‘normal’。在:before和:after上，如果指定了content 的初始值为 ‘normal’，则计算为 ‘none’ 。content 的值设置为 ‘none’ 不会生成伪元素。所以:before和:after才需要指定一个看似无意义的 content: ""; 来初始化content的值。</p>
+    <p>添加伪类元素是块级元素。不能设置宽高。要转换为行级元素 display:block</p>
+</body>
+</html>

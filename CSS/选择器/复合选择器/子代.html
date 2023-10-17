@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>子代选择器</title>
+    <style>
+        * {
+            font-size: 25px;
+        }
+        div>a {
+            color: red;
+        }
+        div>p>a {
+            color: aqua;
+        }
+        .qiantao>a {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h2>子代和后代不一样，后代是父代后所有的标签，子代只是父代下一代的标签</h2>
+    <div>
+        <a href="">子代方法为，父代标签>子代标签</a>
+        <a href="">div>a</a>
+        <a href="">这是一种关系，只要满足div>a，则就会实现css，无论是否嵌套</a>
+        <p>
+            <a href="">div>p>a</a>
+            <div class="qiantao">
+                <a href="">嵌套div>a</a>
+            </div>
+        </p>
+    </div>
+</body>
+</html>

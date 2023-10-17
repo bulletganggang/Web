@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>结构伪类</title>
+    <style>
+        * {
+            font-size: 25px;
+        }
+        div>p:first-child {
+            color: red;
+        }
+        div>p:last-child {
+            color: green;
+        }
+        div>p:nth-child(6) {
+            color: aqua;
+        }
+        div>p:nth-child(3n+2) {
+            color: gold;
+        }
+        div>p:first-of-type {
+            color: red;
+        }
+        div>p:last-of-type {
+            color: gray;
+        }
+        div>p:nth-of-type() {
+            color: gold ;
+        }
+         
+    </style>
+</head>
+<body>
+    <div>
+        <p>div>p:first-child的意思是</p>
+        <p>选中div的所有孩子p中的第一个孩子p</p>
+        <p>first-child必须是第一个孩子，不看后面的孩子</p>
+        <hr>
+        <p>div p:first-child的意思是</p>
+        <p>选中div的后代p元素，p必须是它父亲的第一个孩子</p>
+        <hr>
+        <p>p:first-child的意思是</p>
+        <p>选中所有p元素，p必须是它父亲的第一个孩子</p>
+        <hr>
+        <p>div>p:last-child的意思是</p>
+        <p>选中div的所有孩子p中的第一个孩子p</p>
+        <hr>
+        <p>div>p:nth-child(b)的意思是</p>
+        <p>选中div的所有孩子p中的第b个孩子p</p>
+        <hr>
+        <p>div>p:nth-child(a*n+b)的意思是</p>
+        <p>选中div的所有孩子p中的 a*n+b 个孩子p</p>
+        <hr>
+        <p>div>p:first-of-type的意思是</p>
+        <p>选中div的所有孩子中的第一个p孩子</p>
+        <hr>
+        <p>div>p:last-of-type的意思是</p>
+        <p>选中div的所有孩子中的最后一个p孩子</p>
+        <hr>
+        <p>div>p:last-of-type的意思是</p>
+        <p>选中div的所有孩子中的最后一个p孩子</p>
+        <hr>
+        <p>div>p:nth-of-type(a*n+b)的意思是</p>
+        <p>选中div的所有孩子中的p个 a*n+b 个孩子</p>
+    </div>
+</body>
+</html>

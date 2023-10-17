@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>粘性定位</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 25px;
+        }
+        .item {
+            background-color: gray;
+        }
+        .first {
+            background-color: aqua;
+            font-size: 40px;
+            position: sticky;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <p>sticky粘性定位，滚动页面，某一部分跟着一起下来直到它的父元素</p>
+    <p>一般用top: 0相对页面最上面body定位</p>
+    <div class="content">
+        <div class="item">
+            <div class="first">A</div>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+        </div>
+        <div class="item">
+            <div class="first">B</div>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+        </div>
+        <div class="item">
+            <div class="first">C</div>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+        </div>
+        <div class="item">
+            <div class="first">D</div>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+        </div>
+        <div class="item">
+            <div class="first">A</div>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+        </div>
+        <div class="item">
+            <div class="first">A</div>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+            <h2>1</h2>
+        </div>
+    </div>
+</body>
+</html>

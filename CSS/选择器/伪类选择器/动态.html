@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态伪类</title>
+    <style>
+        * {
+            font-size: 25px;
+        }
+        a:link {
+            color: red;
+        }
+        a:visited {
+            color: orange;
+        }
+        a:hover {
+            color: aqua;
+        }
+        a:active {
+            color: green;
+        }
+        h2:hover {
+            color: gold;
+        }
+        h2:active {
+            color: green;
+        }
+        input:focus,
+        select:focus
+        {
+            color: green;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://www.bilibili.com/" target="_blank">a:link  表示未访问</a><br>
+    <a href="https://www.baidu.com/" target="_blank">a:visited  表示已访问</a><br>
+    <a href="#" target="_blank">a:hover  表示鼠标悬浮在上面时候的状态</a><br>
+    <a href="#" target="_blank">a:active  表示点击时候的状态</a><br>
+    <p>注意需要是LVHA的顺序</p>
+    <h2>除了链接，其它标签也都可以</h2>
+    <p>input也可以，input:focus，当鼠标点击到文本框时，文本框自动发生变化</p>
+    <input type="text">
+    <br>
+    <input type="text">
+    <br>
+    <input type="text">
+    <br>
+    <select>
+        <option value="1">111</option>
+        <option value="2">222</option>
+    </select>
+</body>
+</html>

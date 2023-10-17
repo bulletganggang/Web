@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动</title>
+    <style>
+        body {
+            font-size: 25px;
+        }
+        img {
+            float: left;
+        }
+        .outer {
+            height: 300px;
+            width: 300px;
+            background-color: aqua;
+            /* text-align: center; */
+        }
+        .a,
+        .b,
+        .c {
+            height: 100px;
+            width: 100px;
+        }
+        .a {
+            background-color: red;
+        }
+        .b {
+            background-color: green;
+            float: left;
+            width: 200px;
+            height: 150px;
+            /* margin: 20px; */
+        }
+        .c {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <p>总的来说，就是文字围绕着图片浮动</p>
+    <img src="../Pic/OIP-C.jpg" alt="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quasi architecto odit voluptatem ducimus officia aliquid animi voluptas, assumenda repellendus dolor corrupti, labore minus molestiae vitae qui saepe modi blanditiis deleniti distinctio, harum unde? Minima porro exercitationem autem quibusdam eaque aperiam perspiciatis quam quaerat eligendi esse iure veritatis molestiae sit voluptate doloremque, id eum reprehenderit dolorem rem accusantium odit, tenetur provident animi. Cum qui suscipit sint optio maiores earum quam architecto cumque ea accusamus quisquam at sapiente natus velit veritatis, id magnam ab aspernatur molestiae nam nihil eius consequuntur fugit! Sed, deleniti odit. Maiores, numquam sit libero repudiandae laudantium magnam.
+    <hr>
+    <div class="outer">
+        <div class="a">111</div>
+        <div class="b">222</div>
+        <div class="c">333</div>
+    </div>
+    <p>float起来的元素可以完美设置padding和margin</p>
+    <p>float: left 开启浮动</p>
+    <hr>
+    <p>消除浮动的影响</p>
+    <p>在最外面容器设置一个，
+        .outer::after {
+            content: '';
+            display: block;
+            clear: both;
+            (看情况加)height: 100px;  
+        }
+    </p>
+    <p>请注意，使用了float之后，如果原先没有设置高度，则父级盒子的高度变为0了</p>
+    <p>可以理解为，原先的父级由内容撑开，但子元素浮动之后，脱离文档流，父级没有内容撑开，高度自动变为0</p>
+</body>
+</html>
