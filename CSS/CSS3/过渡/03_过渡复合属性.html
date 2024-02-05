@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>03_过渡复合属性</title>
+    <style>
+        * {
+            font-size: 25px;
+        }
+        .outer {
+            width: 1000px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        .inner {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            transition:linear all 3s 0.5s ;
+        }
+        .outer:hover .inner {
+            width: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <p>transition复合写法，只需要确保过渡时间在延迟时间前即可</p>
+    <p>transition:linear all 3s 0.5s</p>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Api</title>
+  <style>
+    * {
+      font-size: 25px;
+    }
+
+    h1 {
+      font-size: 33px;
+    }
+
+    h3 {
+      font-size: 28px;
+    }
+
+    h4 {
+      font-size: 26px;
+    }
+
+    p {
+      font-size: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>const优先</h1>
+  <p>const定义的数组和对象的值可以添加和修改</p>
+  <hr>
+  <h1>DOM</h1>
+  <p>通过JS获取过来的标签，都是dom对象，有属性和方法</p>
+  <hr>
+  <h1>获取DOM元素</h1>
+  <p>document.querySelector('CSS') 查询选择器，选择匹配到的第一个元素，返回的对象可以直接操作修改</p>
+  <p>可以写标签名、类名、ID，CSS中可以写的都能写 例如，ul li:first-child</p>
+  <p>document.querySelectorAll('') 选择匹配的多个元素，返回对象集合伪数组，不能直接修改</p>
+  <!-- <div class="box">123</div>
+  <ul>
+    <li>123</li>
+    <li>123</li>
+    <li>123</li>
+  </ul> -->
+  <!-- <script>
+    const box = document.querySelector('.box')
+    box.style.color = 'red'
+    // console.log(box)
+    const lis =document.querySelectorAll('ul li')
+    // console.log(lis)
+  </script> -->
+  <hr>
+  <h1>操作元素内容</h1>
+  <p>对象.innerText 获取文字内容，可以修改，不解析标签</p>
+  <p>对象.innerHTML 可以解析标签</p>
+  <b>
+    <p>请注意，innerHTML适用于两个标签之间的，如p标签，而value适用于一个标签的，如input标签</p>
+  </b>
+  <!-- <div class="box">123</div>
+  <script>
+    const arr = ['.box']
+    const box =document.querySelector(arr[0])
+    console.log(box.innerHTML)
+    box.innerHTML = '778'
+  </script> -->
+  <hr>
+  <h1>操作元素属性</h1>
+  <p>对象.属性 = 值 例如，img.src = ''</p>
+  <hr>
+  <h1>修改样式</h1>
+  <h3>style修改样式</h3>
+  <p>对象.style.样式属性 = '值'</p>
+  <p>例如，box.style.color = 'red'</p>
+  <p>但是需要注意的是，CSS样式属性中有 - 的，变为小驼峰命名法</p>
+  <p>例如 box.style.backgroundColor</p>
+  <!-- <div class="box">123</div>
+  <script>
+    const box = document.querySelector('.box')
+    box.style.color = 'red'
+  </script> -->
+  <h3>类名修改样式</h3>
+  <p>提前定义好一个样式，然后给需要修改的对象添加即可，可以添加多个，会覆盖先前的属性，对象.className = '类名 类名'</p>
+  <p>例如 div.className = 'box'</p>
+  <h3>classList修改样式，使用最多</h3>
+  <p>解决了覆盖的问题，可以选择add、remove等方法进行增删查改</p>
+  <p>例如 div.classList.add('box')，类名不加点</p>
+  <p>toggle() 切换类，有则删除，无则加上</p>
+  <p>contains 判断是否包含某一类，返回true/false</p>
+  <!-- <script>
+    const div= document.querySelector('div')
+    div.classList.add('box')
+  </script> -->
+  <hr>
+  <h1>操作表单元素</h1>
+  <p>修改 对象.属性名 = 新值</p>
+  <p>获取表单内容 属性.value</p>
+  <p>this.reset() 清空表单元素</p>
+  <!-- <input type="text" value="778"> -->
+  <!-- <input type="checkbox" name="" id="">
+  <script>
+    // const text = document.querySelector('input')
+    // console.log(text.value)
+    const check = document.querySelector('input')
+    check.checked = 1
+  </script> -->
+  <hr>
+  <h1>H5自定义属性</h1>
+  <p>标签中添加 data- 为自定义属性，例如data-id='1'</p>
+  <p>获取自定义属性 属性.dataset.id dataset是所有data的集合</p>
+  <hr>
+  <h1>定时器-间歇函数</h1>
+  <p>setInterval(函数名,间隔时间) 每隔一段时间调用函数，函数不加括号，间隔时间单位为ms</p>
+  <p>返回的是一个id数字</p>
+  <p>clearInterval(x) 关闭定时器，let x = setInterval()</p>
+  <button disabled class="btn">time:5</button>
+  <!-- <script>
+    // setInterval(function () {
+    //   console.log('123')
+    // },1000)
+    // function fn()
+    // {
+    //   console.log(123)
+    // }
+    // let x = setInterval(fn,1000)
+    // clearInterval(x)
+    const btn = document.querySelector('.btn')
+    // console.log(btn.innerHTML) //button的文本由innerHTML获得
+    let i=5
+    let time =setInterval(
+    function() 
+    {
+      i--;
+      btn.innerHTML=`time:${i}`
+      if(i===0)
+      {
+        btn.innerHTML=`fine`
+        clearInterval(time)
+        btn.disabled = 0
+      }
+    }
+    ,1000)
+  </script> -->
+  <hr>
+  <h1>事件监听</h1>
+  <p>元素对象.addEventListener('事件类型',要执行的函数)</p>
+  <p>可以让某些元素在事件触发的时候，比如 鼠标点击click 执行函数</p>
+  <p>也还有一些类型，比如 鼠标经过mouseenter 鼠标离开mouseleave</p>
+  <button disabled class="">按钮</button>
+  <!-- <script>
+    const btn = document.querySelector('button')
+    btn.addEventListener('click',function () {
+      alert('123')
+    })
+  </script> -->
+  <p>focus 获得焦点 blur 失去焦点</p>
+  <p>keydown\up 键盘按下\弹起</p>
+  <p>input 用户输入事件，即文本框发生改变时，发生一次改变就执行一次函数</p>
+  <p>change 改变事件，当鼠标离开了文本框，并且表单值发生了变化时触发</p>
+  <p>tx.value.length 可以获得某一对象的输入文本的长度</p>
+  <p>str.trim() 可以去除字符串前后的空格</p>
+  <p>针对视频/音频的事件监听 ontimeupdate，视频一变化就触发 onloadeddata，页面一刷新就触发</p>
+  <p>video.ontimeupdate = function() {}</p>
+  <p>video.currentTime 视频当前时间</p>
+  <!-- <input type="text" name="" id=""> -->
+  <!-- <script>
+    const ipt = document.querySelector('input')
+    // ipt.addEventListener('keydown',function () {
+    //   console.log(111)
+    // })
+    // ipt.addEventListener('keyup',function () {
+    //   console.log(222)
+    // })
+    ipt.addEventListener('input',function () {
+      console.log(ipt.value.length)
+    })
+  </script> -->
+  <hr>
+  <h1>事件对象</h1>
+  <p>元素对象.addEventListener('事件类型',function (e) { } ) 这个e，即为事件对象</p>
+  <p>对象部分类型 type 获取当前事件类型 clientX\Y 获取光标相对位置 key 用户按下的键盘值</p>
+  <input disabled type="text" name="" id="">
+  <!-- <script>
+    const ipt = document.querySelector('input')
+    ipt.addEventListener('keyup' , function(e) {
+      if(e.key === 'a')
+      {
+        console.log(778)
+      }
+    })
+  </script> -->
+  <hr>
+  <h1>环境对象 & 回调函数</h1>
+  <p>指的是函数内部特殊的变量this，谁调用，this就是谁 </p>
+  <p>函数A作为函数B的参数，函数A即为回调函数</p>
+  <hr>
+  <h1>事件流</h1>
+  <p>事件流是事件完整执行过程中的流动路径，分为捕获（大到小）、冒泡阶段（小到大），实际工作以冒泡为主</p>
+  <p>元素对象.addEventListener('事件类型',function () { } , false) 默认为false冒泡，true则为捕获</p>
+  <p>e.stopPropagation() 可以阻止冒泡，但是在addEventListener中的function需要使用e事件对象</p>
+  <p>元素对象.removeEventListener('事件类型',要执行的函数) 解绑事件</p>
+  <p>需要注意的是，匿名函数无法解绑！</p>
+  <!-- <script>
+    const p = document.querySelector('q')
+    p.addEventListener('click',function (e) {
+      e.stopPropagation()
+    })
+    p.removeEventListener()
+  </script> -->
+  <hr>
+  <h1>事件委托</h1>
+  <p>事件委托利用的是冒泡特性，给父元素注册事件，触发子元素时，冒泡到父元素上，从而触发父元素的事件</p>
+  <p>例如ul中的li，不需要for循环给li添加事件，直接给ul添加事件，即可点击li则触发事件</p>
+  <p>e.target是事件对象e中的某一元素，比如ul中的li或p，可以修改，比如e.target.style.color = 'red'</p>
+  <p>事件对象e.target.tagName 可以获得真正触发事件的元素</p>
+  <p>e.preventDefault() 阻止默认行为提交，比如 链接跳转，表单域跳转</p>
+  <!-- <ul>
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+    <li>005</li>
+    <p>ppp</p>
+  </ul>
+  <script>
+    const ul =document.querySelector('ul')
+    ul.addEventListener('click',function(e) {
+      // this.style.color = 'red'
+      if(e.target.tagName === 'LI') e.target.style.color = 'red'
+    })
+  </script> -->
+  <hr>
+  <h1>页面加载</h1>
+  <p>把js写在上面head部分可能导致无法使用，因为元素在下面，js在上面无法获取元素</p>
+  <p>使用window.addEventListener('load',function () {})即可，即等待所有事件加载完毕再使用，不过现在使用较少</p>
+  <p>window也可以换为其他标签，比如img较大可以使用img.add</p>
+  <p>document.addEventListener('DOMContentLoaded',function () {})，无需等待样式表、图像完全加载</p>
+  <hr>
+  <h1>页面滚动</h1>
+  <p>window.addEventListener('scroll',function () {})，监听页面滚动，页面一滚动即执行</p>
+  <p>同理，window也可以换成其他标签</p>
+  <p>属性.scrollTop向下滚动了多少像素，属性.scrollLeft向右滚动了多少像素</p>
+  <p>document.documentElement 返回对象为HTML元素</p>
+  <p>document.documentElement.scrollTop 可以获取当前页面下滑了多少像素</p>
+  <!-- <script>
+    document.documentElement.scrollTop = 3000
+    window.addEventListener('scroll',function () {
+      console.log(document.documentElement.scrollTop)
+    })
+  </script> -->
+  <hr>
+  <h1>client & offset</h1>
+  <p>window.addEventListener('resize',function () {}) 可以在改变页面窗口大小的时候执行函数</p>
+  <p>clientWidth\clientHeight 获取元素可见部分宽高，不包含边框、margin、滚动条</p>
+  <p>offsetWidth\offsetHeight 获取元素自身宽高，可以包含边框</p>
+  <p>offsetLeft\offsetTop 获取元素距离自身定位祖先元素的左、上距离，注意是只读属性，无法修改，且祖先元素得是定义了position的</p>
+  <p>
+    document.addEventListener("click", function (e) {
+    console.log(e.pageX)
+    console.log(e.pageY)
+    })
+    可以获取鼠标当前相对于文档的位置
+  </p>
+  <p>e.clientX e.clientY 获取鼠标当前相对于相对于浏览器窗口的位置</p>
+  <p>e.screenX e.screenY 获取鼠标当前相对于相对于屏幕的位置</p>
+  <p>元素.getBoundingClientRect() 可以获得当前元素相对于浏览器窗口的坐标，返回的是数组</p>
+  <p>元素.getBoundingClientRect().x/y 可以获得当前元素到浏览器窗口左/上距离</p>
+  <hr>
+  <h1>日期对象</h1>
+  <p>const date = new Date() 创建了一个时间对象，获得当前时间</p>
+  <p>const date = new Date('2021-1-1 05:20:00') 获得指定时间</p>
+  <p>getFullYear() 获取年份 getMonth() 获得月份，值为0~11，一月是0，使用的时候注意需不需要加1</p>
+  <p>getDate() 获取当天是几号 getDay() 获取当前是星期几，取值0~6，周日是0</p>
+  <p>getHours() 获取当前时，取值0~23，24时为0 getMinutes()\getSeconds() 获取当前分\秒，取值0~59，60分为0 </p>
+  <p>toLocaleDateString() + toLocaleTimeString() = toLocaleString() 2023/8/17 17:36:07</p>
+  <!-- <script>
+    const date = new Date()
+    console.log(date.getTime())
+  </script> -->
+  <p>将来时间戳 - 现在时间戳 = 剩余时间毫秒数</p>
+  <p>获取当前时间戳的三种办法 date.getTime() 简写+new Date() Date.now()只能获得当前的，而前面两种可以获得其它时间戳</p>
+  <p>倒计时转换公式，时间戳单位是ms，需要除1000转换为s
+    d=parseInt(总秒数/ 60 / 60 / 24)
+    h=parseInt(总秒数/ 60 / 60 % 24)
+    m=parseInt(总秒数/ 60 % 60)
+    s=parseInt(总秒数% 60)
+  </p>
+  <hr>
+  <h1>DOM节点</h1>
+  <p>子元素.parentNode 可以获得其父元素 父元素.children 可以获得子元素，返回的是伪数组</p>
+  <p>元素.next/previousElementSibling 选择下/上一个兄弟元素</p>
+  <!-- <div class="d">
+    <div class="s">111</div>
+  </div>
+  <script>
+    const d = document.querySelector('.d')
+    console.log(d.previousElementSibling)
+  </script> -->
+  <h3>增加节点</h3>
+  <p>document.createElement('标签名') 创建节点</p>
+  <p>父元素.appendChild(需要添加的子元素) 添加在父元素最后 父元素.insertBefore(需要添加的子元素，在哪个元素前面)</p>
+  <!-- <script>
+    const d = document.createElement('div')
+    d.insertBefore()
+  </script> -->
+  <h3>克隆 & 删除</h3>
+  <p>元素.cloneNode(布尔值) true代表克隆时会包含后代节点一起克隆，较多使用 false代表克隆时不包含后代节点，默认为false</p>
+  <p>删除元素需要通过父元素删除，父元素.removeChild(要删除的子元素)</p>
+  <!-- <script>
+    const d = document.createElement('div')
+  </script> -->
+  <hr>
+  <h1>BOM</h1>
+  <p>setTimeout(回调函数,等待毫秒数) 延时函数，只执行一次，也可以清除，清除方法同定时器一样</p>
+  <p>eventloop 事件循环，原理为异步执行</p>
+  <p>location 对象，拆分并保存了URL地址的各个组成部分</p>
+  <p>location.href = '' 经常用href，利用js的方法跳转页面</p>
+  <p>location.search 获取地址中携带的内容，符号 ? 及后面的部分</p>
+  <p>location.hash 获取地址中携带的内容，符号 # 及后面的部分</p>
+  <p>location.reload() 刷新页面，传入参数true为强制刷新，类似于alt+f5</p>
+  <!-- <a href = 'https://cn.bing.com/?scope=web' class="test">还有5秒跳转网页</a>
+  <script>
+    const a = document.querySelector('.test')
+    let time = 4
+    let i =setInterval(function() {
+      a.innerHTML = `还有${time}秒跳转网页`
+      time--
+      if(time === 0)
+      {
+        clearInterval(i)
+        location.href = 'https://cn.bing.com/?scope=web'
+      }
+    },1000)
+  </script> -->
+  <p>navigator 记录了浏览器自身的相关信息的对象，通常使用userAgent检测浏览器的版本及平台</p>
+  <p>history 管理历史记录的对象</p>
+  <p>history.back()/forward() 后退/前进一个网页 go(x)前进x个网页</p>
+  <hr>
+  <h1>本地存储</h1>
+  <p>本地存储数据，在浏览器的Application查看，只能存储字符串类型</p>
+  <p>localStorage.setItem('key','value') 增加\修改数据</p>
+  <p>localStorage.getItem('key') 获取数据</p>
+  <p>localStorage.removeItem('key') 删除数据</p>
+  <!-- <script>
+    localStorage.setItem('test','this is a test')
+    console.log(localStorage.getItem('test'))
+    localStorage.removeItem('test')
+  </script> -->
+  <p>localStorage不能存储复杂数据类型，比如对象，如果需要存储复杂数据类型，需要将其转换为JSON字符串</p>
+  <p>JSON.stringify(复杂数据类型)即可转换为JSON字符串，JSON对象 属性和值统一有双引号</p>
+  <p>localStorage.setItem('data',JSON.stringify(复杂数据类型))</p>
+  <p>JSON.parse(JSON字符串) 把JSON字符串转换为 对象</p>
+  <p>字符串拼接开发常用写法，利用map()和join()数组方法实现字符串拼接</p>
+  <p>map方法 arr.map(function (ele,index) {}) ele为arr中的数组元素，index为下标</p>
+  <p>join方法 arr.join('') 用于把数组中的所有元素转换成一个字符串</p>
+  <p>通过参数里面指定的分隔符进行分隔，空字符串''，则所有元素之间都没有字符，不传参默认 , 分隔</p>
+  <!-- <script>
+    const arr = ['111','222','333']
+    // map
+    // const newArr = arr.map(function (ele,index) {
+    //   // console.log(ele)
+    //   // console.log(index)
+    //   return ele + '778'
+    // })
+
+    // join
+    // console.log(arr.join(''));
+  </script> -->
+  <hr>
+  <h1>正则表达式</h1>
+  <h3>定义正则表达式语法</h3>
+  <p>const 变量名 = /表达式/</p>
+  <p>regObj.test(被检测的字符串)用来判断正则表达式与指定字符串是否匹配，返回true/false，使用最多</p>
+  <p>regObj.exec(被检测的字符串)在一个指定字符串中执行一个搜索匹配，返回数组/null</p>
+  <!-- <script>
+    const test = '114514'
+    const reg = /4/
+    console.log(reg.test(test))
+  </script> -->
+  <h3>元字符</h3>
+  <h4>边界符</h4>
+  <p>表示位置，开头和结尾，必须用什么开头，用什么结尾</p>
+  <p>^以谁开始 $以谁结束</p>
+  <p>/^1/即判断以1为开头的，如果被判断的字符串开始不是1，即false</p>
+  <p>/^1$/精确判断，是否为1</p>
+  <!-- <script>
+    console.log(/^1/.test('1'))
+    console.log(/^1/.test('11'))
+    console.log(/^1/.test('21'))
+    console.log(/^1$/.test('11'))
+  </script> -->
+  <h4>量词</h4>
+  <b>
+    <p>*重复零次或更多次>=0 +重复一次或更多次>=1 ?重复零次或一次0/1</p>
+  </b>
+  <p>/^1*$/表示只能出现1，开头、结尾都必须为1，如1/11/111或空字符串</p>
+  <p>/^1+$/表示只能出现1，开头、结尾都必须为1，如1/11/111，不能是空字符串</p>
+  <p>/^1?$/表示只能出现1零次或一次，即1/空字符串</p>
+  <p><b>{n}重复n次 =n {n,}重复n次或更多次 >=n {n,m}重复n到m次 n~m </b></p>
+  <p>/^1{4}$/表示1必须只能出现4次，多或少都不行</p>
+  <h4>字符类</h4>
+  <p><b>[]匹配字符集合</b></p>
+  <p>/[abc]/即只要包含abc中任意一个字符，都返回true</p>
+  <p>/^[abc]&/只选一个，如ab不行!!!请注意，如果需要匹配多个，请在后面加量词，如/^[abc]{n}&/</p>
+  <p>[a-z]表示小写字母 [A-Z]表示大写字母 [0-9]表示数字 可以一起写，如[a-zA-Z0-9]匹配数字和字母</p>
+  <p>/^[1-9][0-9]{4,}&/即表示匹配开头为1-9，后面为至少4个0-9的字符串</p>
+  <p>在[]中加入^表示取反</p>
+  <p>[^a-z]匹配除了小写字母以外的字符</p>
+  <p>.匹配除了换行符以外的字符</p>
+  <p><b>预定义类</b></p>
+  <p>某些常见模式的简写</p>
+  <p>\d 匹配0-9中任一数字，相当于[0-9] \D 相当于[^0-9]</p>
+  <p>\w 匹配任意的字母数字下划线，相当于[a-zA-Z0-9_] \W 相当于[^a-zA-Z0-9_]</p>
+  <p>\s 匹配空格，包括换行符\制表符\空格符等，相当于[\t\r\n\v\f] \S 相当于[^\t\r\n\v\f]</p>
+  <p>日期格式：^\d{4}-\d{1,2}-\d{1,2}</p>
+  <p><b>修饰符</b></p>
+  <p> 修饰符约束正则执行的某些细节行为</p>
+  <p>/表达式/修饰符 i为ignore，正则匹配时字母不区分大小写 g为global，匹配所有满足正则表达的结果</p>
+  <p>replace替换 字符串.replace(需要替换的内容，'替换内容')，返回一个新的字符串</p>
+  <p>str.replace(/1/ig,'123') 用123来替换str中所有的1，i表示不区分大小写，g表示替换所有的1</p>
+</body>
+
+</html>

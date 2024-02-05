@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS进阶</title>
+  <style>
+    * {
+      font-size: 25px;
+    }
+
+    h1 {
+      font-size: 33px;
+    }
+
+    h3 {
+      font-size: 28px;
+    }
+
+    h4 {
+      font-size: 26px;
+    }
+
+    p {
+      font-size: 25px;
+    }
+
+    div {
+      height: 300px;
+      width: 300px;
+      background-color: aqua;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>函数参数</h1>
+  <h3>动态函数，arguments 是函数内部内置的伪数组变量，包含了调用函数时传入的所有实参</h3>
+  <p>有时函数不确定参数，则可以函数定义时不确认参数，调用的时候再传参</p>
+  <p>比如getSum(1,2) getSum(1,2,3) getSum(1,2,3,4)</p>
+  <h3>剩余参数，...arr 获取剩余实参，是真数组，实际开发推荐使用剩余参数</h3>
+  <p>比如getSum(a, b, ...arr)确保有两个以上的实参，多余的则在arr中</p>
+  <!-- <script>
+    function get()
+    {
+      let s = 0
+      arguments
+    }
+  </script> -->
+  <h3>展开运算符...</h3>
+  <p>注意和剩余参数区分开 ...可以让数组展开，如[1,2,3]可以展开为1,2,3</p>
+  <p>多用于求数组最大最小值Math.max(...arr)，因为max只能接受字符串，所以将数组展开</p>
+  <p>也用于合并数组，const arr = [...arr1, ...arr2]</p>
+  <hr>
+  <h1>箭头函数</h1>
+  <p>箭头函数更适合那些本来需要匿名函数的地方</p>
+  <h3>函数形式为const fn = (x) => {
+    console.log(x)
+    }</h3>
+  <p>()中写的是参数，如果只有一个参数，括号()可以省略</p>
+  <p>如果只有一行代码，可以省略大括号{}和return，自动作为返回值返回 如const fn = x => x+x，fn(x)是x+x的值</p>
+  <p>箭头函数可以直接返回一个对象，const fn = (uname) => ({uname:uname})，一行代码可以省略{}，但是对象本身外面有{}，容易混淆，所以加个()</p>
+  <!-- <script>
+    const fn = x => {
+      console.log(x);
+    }
+    fn(778)
+  </script> -->
+  <h3>箭头函数没有arguments动态参数，但有...arr剩余参数</h3>
+  <h3>箭头函数不创建自己的this，它会从自己的作用域链的上一层沿用this</h3>
+  <hr>
+  <h1>解构赋值</h1>
+  <h3>数组解构是将数组的单元值快速批量的赋值给一系列变量的简洁语法</h3>
+  <p>const [max, min, avg] = [100, 60, 80] console.log(max)，变量获得的是值</p>
+  <p>const arr = [1, 2, 3] const [m1, m2, m3] = arr</p>
+  <p>;[b,a] = [a,b] 可以交换ab的值</p>
+  <p>有两个语句必须加分号的情况，一个是多个立即执行函数 (function() {})(); (function() {})();</p>
+  <p>另外一个是使用数组的时候，如果数组前面有语句，则必须为 ;[]</p>
+  <p>变量多单元值少 [a,b,c] = [1,2] 多余的变量c为undefined</p>
+  <p>还可以忽略赋值 [a, ,c] = [1,2,3] 则a=1 c=3</p>
+  <p>const [a,[b,c]] = [1,[2,3]] 可以解析多维数组，如果为[a,b] = [1,[2,3]]，则b为数组[2,3]</p>
+  <h3>对象解构是将对象属性和方法快速批量赋值给一系列变量的简洁语法</h3>
+  <p>const {name,age} = {name:'123',age:778}，要求的是变量名和属性名必须一样</p>
+  <p>对象解构的变量名可以重新改名 旧变量名:新变量名 const {name:uname,age} = {name:'123',age:778} uname为新的名字，内容为'123'</p>
+  <p>以及对象数组 const [{uname,age}] = [{uname : '123' , age : 778}]</p>
+  <p>多级对象解构 const [{name , family: {bro,dad,mom}}] = obj</p>
+  <hr>
+  <h1>forEach循环，主要为遍历，不返回值，适合遍历数组对象</h1>
+  <p>数组.forEach(function(ele,index) { }) ele为元素，index为下标</p>
+  <!-- <script>
+    const arr = [1,2,3]
+    arr.forEach(function(ele,index) {
+      console.log(ele+index)
+    })
+  </script> -->
+  <p>filter()筛选数组符合条件的元素，并返回筛选之后元素的新数组</p>
+  <p>const newArr = arr.filter(function(ele,index) { return ele>=20 }) ele为元素，index为下标</p>
+  <hr>
+  <h1>创建对象</h1>
+  <p>三种方式，对象字面量创建 const obj = {}，利用new Object const obj = new Object({})</p>
+  <p>利用构造函数，把公共部分提取出来。快速创建多个类似对象 c++like</p>
+  <p>function Xxx(xx,xxx) 规定对象构造函数函数名需大写</p>
+  <!-- <script>
+    function Test(test1,test2)
+    {
+      this.test1 = test1
+      this.test2 = test2
+    }
+    const test = new Test(111,222)
+    console.log(test.test1);
+  </script> -->
+  <hr>
+  <h1>Object静态方法</h1>
+  <p>Object.keys(对象名) 获取对象中所有属性名，返回数组 ['uname','age']</p>
+  <p>Object.values(对象名) 获取对象中所有属性值，返回数组 ['111','222']</p>
+  <p>const arr = Object.keys(obj)</p>
+  <p>Object.assign(新对象，旧对象) 可以复制旧对象，但使用较少</p>
+  <p>使用较多的是Object.assign(对象，新添加的属性名) 用于添加新的属性</p>
+  <p>Object.assign(o,{uname : '111'})</p>
+  <hr>
+  <h1>数组常用循环</h1>
+  <p>forEach 遍历数组，不返回数组，用于查找遍历数组元素</p>
+  <p>filter 过滤数组，返回新数组，返回筛选满足条件的数组元素</p>
+  <p>map 迭代数组，返回新数组，返回处理之后的数组元素</p>
+  <p>reduce 累计器，返回累计处理的结果，用于求和/p>
+  <p>arr.reduce(function(上一次的值，当前值){},初始值)，即使没有初始值，也最好写0，以防对象数组出错</p>
+  <p>如果没有初始值，上一次的值就是数组第一个值，加上数组第二个值，成为下一个上一次的值</p>
+  <p>如果有初始值，上一次的值就是初始值，加上数组第一个值，成为下一个上一次的值</p>
+  <p>const total = arr.reduce((sum,curr) => sum+curr,10) total接受的是数组累加后返回的值</p>
+  <hr>
+  <h1>数组常见方法</h1>
+  <b>
+    <p>join数组元素拼接为字符串，返回字符串</p>
+  </b>
+  <b>
+    <p>find查找元素，返回符合测试条件的第一个数组元素值，找不到则返回undefined</p>
+  </b>
+  <b>
+    <p>includes查找元素是否存在，返回bool值</p>
+  </b>
+  <p>const re = arr.find(ele => item === '778') re为778/undefined</p>
+  <p>用得较多的时候，是查找对象数组的某一个对象，根据对象中的某一个属性值查找，返回整个对象</p>
+  <p>const re = arr.find(ele => item.name === '778') re为item这个对象</p>
+  <b>
+    <p>every一否则否 some一有则有，返回bool值</p>
+  </b>
+  <p>const flag = arr.every(item => item>=10)</p>
+  <b>
+    <p>Array.from(伪数组) 可以转换为真数组，有pop等方法</p>
+  </b>
+  <hr>
+  <h1>字符串常用方法</h1>
+  <b>
+    <p>split('') 字符串转换为数组，和join()相反</p>
+  </b>
+  <p>const str = '111,222,333' split(',')根据逗号分隔，变为数组['111','222','333']</p>
+  <p>如果括号里面不填，则默认一个个字母分割，数组长度=字符串长度</p>
+  <!-- <script>
+    const str = '111,222,333'
+    console.log(str.split(','));
+  </script> -->
+  <b>
+    <p>substring(start,end) 截取字符串，不填end则默认截取到最后，填end截取不会包含第end位字符</p>
+  </b>
+  <b>
+    <p>str.startsWith('123',start) 判断str从start位置开始是否以123字符串为开头，返回bool值，start可省略</p>
+  </b>
+  <b>
+    <p>str.includes('123',start) 判断str从start位置开始是否包含123字符串，返回bool值，start可省略</p>
+  </b>
+  <!-- <div class="test"></div>
+  <script>
+    const gift = '111,222'
+    const arr = gift.split(',')
+    // 这里使用map遍历数组，因为map语义更好
+    // map返回的是数组，需要转换为字符串再追加
+    const newArr = arr.map(ele => `<p>${ele}好饿好饿啊啊啊</p>`)
+    document.querySelector('.test').innerHTML = newArr.join('')
+  </script> -->
+  <p>num.toFixed(n) 设置保留小数n位长度，四舍五入，但会使数字变为字符串</p>
+  <p>num.toString() 和 String(num) 都可以将数字类型转换为字符串</p>
+  <hr>
+  <h1>原型prototype</h1>
+  <p>对象中有些固定不变的方法或函数，可以使用原型共享，节约内存</p>
+  <p>obj.prototype.xxx = ele => {}</p>
+  <!-- <script>
+    Array.prototype.max = function () {
+      return Math.max(...this)
+    }
+    Array.prototype.sum = function () {
+      return this.reduce((prev, curr) => prev + curr, 0)
+    }
+    console.log([1, 2, 3].max());
+    console.log([1, 2, 3].sum());
+  </script> -->
+  <hr>
+  <h1>constructor属性</h1>
+  <p>指向原型对象的构造函数</p>
+  <p>prototype 可能会添加许多方法，采取对象形式赋值，但会覆盖原型对象原本的内容，constructor就不再指向当前构造函数</p>
+  <p>可以手动修改，添加一个constructor指向原先的构造函数</p>
+  <hr>
+  <h1>对象原型 _proto_</h1>
+  <p>对象原型 _proto_ 指向 构造函数的原型对象prototype</p>
+  <hr>
+  <h1>原型继承</h1>
+  <p>可以通过原型继承某些父类，如 子构造函数.prototype = new 父构造函数</p>
+  <p>不过别忘了重新设置constructor指向构造函数 构造函数.prototype.constructor = 构造函数</p>
+  <p>instanceof 运算符检测构造函数的prototype属性是否出现在某个实例对象的原型链上，返回bool值</p>
+  <hr>
+  <h1>浅拷贝</h1>
+  <p>const newObj = oldObj 那么修改newObj的时候，oldObj也会被修改/p>
+  <p>浅拷贝有两种方法</p>
+  <p>const newObj = {...oldObj} 和 Object.assign(newObj,oldObj)</p>
+  <p>浅拷贝也存在问题，比如出现多层对象拷贝的时候还是会出现问题，浅拷贝只拷贝表面一层</p>
+  <hr>
+  <h1>深拷贝</h1>
+  <p>拷贝函数 for(let k in oldObj) newObj[k] = oldObj[k]，k为属性名 age，oldObj[k]为属性值 778</p>
+  <p>不过for循环拷贝也类似于浅拷贝，遇到数组和对象需要额外处理</p>
+  <p>newObj instanceof Array/Object 注意先处理数组再处理对象，因为数组也属于对象，用到函数递归</p>
+  <p>调用库lodash，实现deepClone</p>
+  <!-- <script src="lodash.min.js"></script> -->
+  <p>const newObj = _.cloneDeep(oldObj)，注意lodash的方法都需要使用一个_.</p>
+  <p>使用JSON转换</p>
+  <p>const newObj = JSON.parse(JSON.stringify(oldObj)) 把oldObj转换为字符串再转换为对象</p>
+  <hr>
+  <h1>异常处理</h1>
+  <p>throw 抛出异常，程序终止执行 throw new Error('')，能够设置更详细的错误信息</p>
+  <p>try catch finally 捕捉异常，可能发生错误的代码写在try中，catch有参数catch(err)</p>
+  <p>catch拦截错误，但不终止程序，如果需要终止可以和throw搭配使用</p>
+  <p>try{} catch(err) {log(err.message)}</p>
+  <p>debugger 调试，写在代码中，直接可以浏览器调试</p>
+  <hr>
+  <h1>this指向</h1>
+  <p>普通函数的this就是谁调用就指向谁</p>
+  <p>箭头函数没有this，引用的是最近作用域的this，向外层作用域一层一层的查找this</p>
+  <p>三种方法改变函数this指向</p>
+  <p>fn.call(thisArg,x,y,...) fn.apply(thisArg,[arr]) thisArg为this指向，两者区别在传递参数apply需要数组形式</p>
+  <p>bind(thisArg,x,y,...) 使用次数最多，不会调用函数</p>
+  <p>返回的是函数，函数里面的this是更改过的newObj，可以用于改变定时器的this，因为定时器的this是window</p>
+  <hr>
+  <h1>防抖 & 节流</h1>
+  <p>防抖 频繁点击事件，只执行最后一次，可以理解为，不管触发多少次事件，经过一定时间后，只执行一次</p>
+  <p>两种方法，lodash中的_.debounce(fun,wait) wait为等待时间，和手写防抖函数</p>
+  <p>节流 频繁点击事件，只执行一次，可以理解为，在一定时间内，不管触发多少次事件，只执行一次</p>
+  <p>两种方法，lodash中的_.throttle(fun,wait) wait为等待时间，和手写节流函数</p>
+  <p>常用于鼠标移动mousemove，页面尺寸缩放resize，滚动条滚动scroll</p>
+  <p>定时器里面是无法删除定时器的，不能使用clear，只能使用timer = null</p>
+  <div id="fd">防抖</div>
+  <div id="jl">节流</div>
+  <script>
+    // 防抖
+    let fd = null
+    document.querySelector('#fd').addEventListener('mousemove', () => {
+      if (fd) {
+        clearTimeout(fd)
+      }
+      fd = setTimeout(() => {
+        console.log(778);
+      }, 1000);
+    })
+
+    // 节流
+    let jl = null
+    document.querySelector('#jl').addEventListener('mousemove', () => {
+      if (jl) {
+        return
+      }
+      jl = setTimeout(() => {
+        console.log(778);
+        jl = null
+      }, 1000);
+    })
+
+  </script>
+
+</html>

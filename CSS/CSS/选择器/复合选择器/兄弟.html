@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兄弟选择器</title>
+    <style>
+        * {
+            font-size: 25px;
+        }
+        div+p {
+            color: red;
+        }
+        div~p {
+            color: aqua;
+        }
+        li+li {
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <div>div</div>
+    <p>div+p</p>
+    <p>div+p表示选择与div紧紧相邻的p，并且只向下寻找同级</p>
+    <p>div~p</p>
+    <p>div~p表示选择与div之后的所有p</p>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</body>
+</html>

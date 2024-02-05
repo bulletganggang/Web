@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX</title>
+  <style>
+    * {
+      font-size: 25px;
+    }
+
+    h1 {
+      font-size: 33px;
+    }
+
+    h3 {
+      font-size: 28px;
+    }
+
+    h4 {
+      font-size: 26px;
+    }
+
+    p {
+      font-size: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>AJAX</h1>
+  <p>ajax可以让浏览器和服务端之间进行通信</p>
+  <p>引入axios库</p>
+  <p>axios库地址: https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js</p>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- <script>
+    axios({
+      url: 'http://hmajax.itheima.net/api/province'
+    }).then(result => {
+      console.log(result);
+    })
+  </script> -->
+  <hr>
+  <h1>URL</h1>
+  <p>url由协议，域名，资源路径组成</p>
+  <p>url查询参数在http://xxx.com/xx/x?参数名1=值1&参数名2=值2</p>
+  <p>?查询 &并列</p>
+  <p>查询的参数名和值写在params内</p>
+  <p style="white-space: pre-wrap;">
+    axios({
+    url: 'http://hmajax.itheima.net/api/province',
+    params: {
+    pname: '河北省'
+    }
+    }).then(result => {
+    console.log(result.data.list.join(''));
+    })
+  </p>
+  <p>需要注意的是，当你加上params时，就会根据查询参数值自动查询</p>
+  <p>也要注意返回的数组的格式，是否需要join('')</p>
+  <!-- <script>
+    axios({
+      url: 'http://hmajax.itheima.net/api/province',
+      params: {
+        pname: '河北省'
+      }
+    }).then(result => {
+      console.log(result.data.list.join(''));
+    })
+  </script> -->
+  <hr>
+  <h1>数据请求 & 提交</h1>
+  <p>GET获取 POST提交</p>
+  <p>method 请求的方法，GET可以省略，不区分大小写，建议小写 data:{参数名: 值}</p>
+  <p style="white-space: pre-wrap;">都写在axios里面
+    axios({
+    url: 'http://ajax-api.itheima.net/api/province',
+    method: 'post'
+    data: {
+    x: 'x'
+    }
+    }).then(result => {
+    console.log(result);
+    })</p>
+  <hr>
+  <h1>axios错误</h1>
+  <p>catch 处理错误</p>
+  <p style="white-space: pre-wrap;">
+    axios({
+    请求选项
+    }
+    ).then(result => {
+    处理数据
+    }).catch(error => {
+    处理错误
+    })</p>
+  <hr>
+  <h1>请求 & 响应报文</h1>
+  <p>可以在浏览器F12网络部分查看</p>
+  <hr>
+  <h1>form-serialize插件</h1>
+  <p>快速获取表单内所有元素的值</p>
+  <p>const data = serialize(form, { hash: true, empty: true })</p>
+  <p>返回的是对象，里面的参数名是input的name属性，值为输入</p>
+  <p>hash 设置获取数据结构 empty 设置是否获取空值</p>
+  <p>补充有一点非常重要，从后端取回来的数据大多数都是数组，使用遍历会简洁代码</p>
+  <hr>
+  <h1>图片上传</h1>
+  <p>const fd = new FormData() fd.append('img', 值)</p>
+  <p>上传文件的时候，添加改变事件，e.target.files[0]才是我们想要的图片的路径，填写到append值中</p>
+  <p>一般是写在axios中的data</p>
+  <hr>
+  <h1>XMLHttpRequest</h1>
+  <p>创建对象 const xhr = new XMLHttpRequest()</p>
+  <p>配置请求方法和url xhr.open('GET','url')</p>
+  <p style="white-space: pre-wrap;">监听loadend事件，接收响应结果
+    xhr.addEventListener('loadend', () => {
+    console.log(xhr.response)
+    })
+    需要注意的是返回的xhr.response是JSON字符串，需要JSON.parse(xhr.response)
+  </p>
+  <p>发起请求 xhr.send()</p>
+  <p>xhr携带参数需要手动在 xhr.open('GET','url')的url中添加 ?xx=x</p>
+  <!-- <script>
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', 'http://hmajax.itheima.net/api/province')
+    xhr.addEventListener('loadend', () => {
+      console.log(JSON.parse(xhr.response).list)
+    })
+    xhr.send()
+  </script> -->
+  <h2>URLSearchParams</h2>
+  <p>xhr中添加查询参数有点麻烦，可以借助方法 URLSearchParams</p>
+  <p style="white-space: pre-wrap;">const paramsObj = new URLSearchParams({
+    参数名1: 值1,
+    参数名2: 值2
+    })
+  </p>
+  <p>const queryString = paramsObj.toString() 生成指定格式查询参数 字符串</p>
+  <!-- <script>
+    const paramsObj = new URLSearchParams({
+      参数名1: 值1,
+      参数名2: 值2
+    })
+    const queryString = paramsObj.toString()
+  </script> -->
+  <h2>数据提交</h2>
+  <p>setRequestHeader()设置请求头</p>
+  <p>告诉服务器传递的内容是JSON字符串 xhr.setRequestHeader('Content-Type','application/json')</p>
+  <p style="white-space: pre-wrap;">准备数据并转换成字符串，发送请求体数据
+    const user = {
+    x: 'x',
+    y: 'y'
+    }
+    const userStr = JSON.stringify(user)
+    xhr.send(userStr)
+  </p>
+  <!-- <script>
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', 'http://hmajax.itheima.net/api/province')
+    xhr.addEventListener('loadend', () => {
+      console.log(JSON.parse(xhr.response).list)
+    })
+    xhr.setRequestHeader('Content-Type', 'application/json')
+    const user = { x: 'x', y: 'y' }
+    const userStr = JSON.stringify(user)
+    xhr.send(userStr)
+  </script> -->
+  <hr>
+  <h1>Promise</h1>
+  <p>使用Promise管理异步任务</p>
+  <p>创建promise对象 const p = new Promise((resolve, reject) => {})</p>
+  <p>在内部执行异步代码</p>
+  <p>获取成功p.then 失败.catch 写在.then后面</p>
+  <p style="white-space: pre-wrap;">
+    const p = new Promise((resolve, reject) => {
+    // 执行异步代码
+    setTimeout(() => {
+    resolve('成功，在then显示')
+    reject(new Error('失败，在catch显示'))
+    }, 2000);
+    })
+    p.then(result => {
+    console.log(result);
+    }).catch(error => {
+    console.log(error);
+    })
+  </p>
+  <p>resolve中写入的东西，就是p.then(result => {})中的result</p>
+  <!-- <script>
+    const p = new Promise((resolve, reject) => {
+      // 执行异步代码
+      setTimeout(() => {
+        resolve('成功，在then显示')
+        reject(new Error('失败，在catch显示'))
+        console.log(11);
+      }, 2000);
+    })
+    p.then(result => {
+      console.log(result);
+    }).catch(error => {
+      console.log(error);
+    })
+  </script> -->
+  <hr>
+  <h1>promise链式调用</h1>
+  <p>可以解决回调函数嵌套的问题</p>
+  <p>p.then 也创造了一个新的promise对象，所以可以通过return一个新的promise对象获得不同的结果</p>
+  <!-- <script>
+    const p = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('111')
+      }, 1000);
+    })
+
+    const p2 = p.then(result => {
+      console.log(result);
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(result + '222');
+        }, 1000);
+      })
+    })
+
+    p2.then(result => {
+      console.log(result);
+    })
+  </script> -->
+  <hr>
+  <h1>async & await</h1>
+  <p>async定义在需要异步执行的代码前面，await定义在axios前面</p>
+  <p>
+    async function xx() {
+    const p = await axios({url:''})
+    }</p>
+  <p>await返回的就是.then()中的内容，并且只有成功获取之后才会向下执行</p>
+  <p>如果出现异常可以使用try{}catch(error){}，需要异步的代码写在try中，出现错误则执行catch中的内容</p>
+  <!-- <script>
+    async function xx() {
+      const p = await axios({url:''})
+    }
+  </script> -->
+  <hr>
+  <h1>微任务和宏任务</h1>
+  <p>执行异步代码先执行微任务再执行宏任务，目前学的微任务只有promise.then</p>
+  <p>promise本身是同步，但是p.then是异步，要注意事件循环</p>
+  <!-- <script>
+    console.log(1);
+    setTimeout(() => {
+      console.log(2);
+    }, 200);
+    console.log(3);
+    setTimeout(() => {
+      console.log(4);
+    }, 0);
+    console.log(5);
+  </script> -->
+  <hr>
+  <h1>promise.all</h1>
+  <p>如果需要多个promise的结果合在一起，或者需要多个promise执行完成才执行某个动作，就可以使用all</p>
+  <p>const p = Promise.all([Promise1,Promise2])</p>
+  <p>p.then.catch都是多个合并后的结果</p>
+
+  <!-- <script>
+    const p = Promise.all([Promise1,Promise2])
+  </script> -->
+  <hr>
+  <h1>拦截器</h1>
+  <p>在请求或响应前被then catch 处理前拦截它们</p>
+  <p>比如统一设置axios的header</p>
+  <p>一般都是有重复的公共的，可以提取出来放在拦截器统一处理</p>
+</body>
+
+</html>

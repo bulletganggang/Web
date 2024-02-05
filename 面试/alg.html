@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+  //   var merge = function(num1, m, num2, n) {
+  //   let i=0,j=0
+  //   const mergeSum = []
+  //   while(i<m || j<n)
+  //   {
+  //       if(i===m)
+  //       {
+  //           mergeSum.push(nums2[j++])
+  //       }
+  //       else if(j===n)
+  //       {
+  //           mergeSum.push(nums1[i++])
+  //       }
+  //       else if(nums1[i]<nums2[j])
+  //       {
+  //           mergeSum.push(nums1[i++])
+  //       }
+  //       else
+  //       {
+  //           mergeSum.push(nums2[j++])
+  //       }
+  //   }
+  //   nums1 = Array.from(mergeSum)
+  //   console.log(mergeSum,nums1);
+  // };
+  // merge([1,2,3,0,0,0],3,[2,5,6],3)
+
+//   var removeElement = function(nums, val) {
+//     for(let i=nums.length-1;i>=0;i--)
+//     {
+//         if(nums[i] === val)
+//         {
+//             nums.splice(i,1)
+//         }
+//     }
+//     console.log(nums);
+//     return nums.length
+// };
+//   console.log(removeElement([0,1,2,2,3,0,4,2],2));
+
+  // var removeDuplicates = function(nums) {
+  //     let s=0
+  //     for(let f=1;f<nums.length;f++)
+  //     {
+  //         if(nums[s] !== nums[f])
+  //         {
+  //             s++
+  //             nums[s] = nums[f]
+  //         }
+  //         console.log(nums,nums[f]);
+  //     }
+  //     return s
+  // };
+  // console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4]));
+
+//   var majorityElement = function(nums) {
+//     let maxN=0,maxT=0
+//     let tempN=0,tempT=0
+//     nums.sort()
+//     for(let i in nums)
+//     {
+//         if(tempN !== nums[i])
+//         {
+//             tempN = nums[i]
+//             tempT++
+//         }
+//         else 
+//         {
+//             tempT++
+//         }
+        
+//         if(maxT<tempT)
+//         { 
+//             maxT = tempT
+//             maxN = tempN
+//             tempT = 0
+//         }
+//     }
+//     return maxN
+// };
+//   majorityElement([2,2,1,1,1,2,2])
+
+  // var rotate = function(nums, k) {
+  //     nums.reverse()
+  //     console.log(nums);
+  //     const newArr1 = nums.slice(0,k)
+  //     console.log(newArr1.reverse());
+  //     const newArr2 = nums.slice(k)
+  //     console.log(newArr2.reverse());
+  //     nums = newArr1.concat(newArr2)
+  //     console.log(nums);
+  // };
+  // rotate([1,2,3,4,5,6,7],3)
+
+  // var canJump = function(nums) {
+  //   let dp = -1
+  //   for(let i=0 ;i<nums.length-1;i++)
+  //   {
+  //       dp = Math.max(dp,Math.floor(i + nums[i]))
+  //       if(dp<i) return false
+  //       console.log(dp,i + nums[i]);
+  //   }
+  //   return dp>=nums.length-1
+  // };
+  // canJump([3,2,1,0,4])
+
+  // var jump = function(nums) {
+  //   let t = 0   //记录跳转多少次
+  //   let now = 0 //记录现在在哪里
+  //   let maxx = -1   //记录最大值
+  //   let n = nums.length-1
+  //   while(t<n)
+  //   {
+  //     if (now+nums[now] >= n) return t+1
+  //     let temp = now
+  //     if (nums[temp] >= 2) {
+  //       for(let i = temp;i<temp+nums[temp];i++)
+  //       {
+  //           if(maxx < i+nums[i])
+  //           {
+  //               maxx = i+nums[i]
+  //               now = i
+  //           }
+  //           console.log(maxx,now);
+  //       }
+  //     }
+  //     else now++
+  //     t++
+  //   }
+  //   return t
+  // };
+  
+  // console.log(jump([1,2,0,1]));
+
+  // var hIndex = function(citations) {
+  //   citations.sort()
+  //   console.log(citations)
+  //   console.log(citations[Math.floor(citations.length/2)]);
+  //   return citations[citations.length/2]
+  // };
+  // hIndex([3,0,6,1,5])
+
+  // var reverseWords = function(s) {
+  //   const str = s.trim()
+  //   const arr = str.split(' ')
+  //   arr.reverse()
+  //   const newArr = arr.filter(item => item !== '')
+  //   console.log(newArr.join(' '));
+  // };
+  // reverseWords("the sky is blue")
+  // reverseWords("a good   example")
+
+  
+  </script>
+</body>
+</html>

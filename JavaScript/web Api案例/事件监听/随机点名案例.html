@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>随机点名案例</title>
+</head>
+<body>
+  <h1>test</h1>
+  <button class="ks">ks</button>
+  <button class="js">js</button>
+  <script>
+    function getrandom(N)
+    {
+      return Math.floor(Math.random() * N.length)
+    }
+    const shuzu = ['123','567','778','111','222','333','888','666']
+    const h = document.querySelector('h1')
+    const ks=document.querySelector('.ks')
+    const js=document.querySelector('.js')
+    let i = 0,index = 0
+    ks.addEventListener('click',function () {
+      i = setInterval(function () {
+        index = getrandom(shuzu)
+        h.innerText = shuzu[index]
+      },50)
+    })
+    js.addEventListener('click',function () {
+      clearInterval(i)
+      shuzu.splice(index,1)
+      if(shuzu.length === 0)
+      {
+        ks.disabled = js.disabled = 1
+        clearInterval(i)
+      }
+    })
+  </script>
+</body>
+</html>

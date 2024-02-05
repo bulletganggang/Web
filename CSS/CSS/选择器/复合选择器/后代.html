@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后代选择器</title>
+    <style>
+        * {
+            font-size: 25px;
+        }
+        ul li {
+            color: red;
+        }
+        ol li {
+            color: aqua;
+        }
+        ol li a {
+            color: gold;
+        }
+        ul li a {
+            color: gray;
+        }
+        .test li {
+            color: green;
+        }
+        .test #idli {
+            color: blue;
+        }
+        .test1 li.aa {
+            color: chocolate;
+        }
+        .test1 div.bb {
+            color: green;
+        }
+        .test1 div.cc {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h2>后代选择器使用方法：父标签 后代标签(注意中间的空格)，针对父标签中的<u>所有</u>后代标签进行css</h2>
+    <ul>
+        <li>ul1</li>
+        <li>ul2</li>
+        <li>ul3</li>
+        <li>
+            <a href="">无论什么元素都一样，针对某一元素就父 后代 后代</a>
+        </li>
+    </ul>
+    <hr>
+    <ol>
+        <li>ol1</li>
+        <li>ol2</li>
+        <li>ol3</li>
+        <li>
+            <a href="">ol li a</a>
+        </li>
+    </ol>
+    <hr>
+    <ol class="test">
+        <li>不过不止，还可以用.class 或者 #id，后面加上需要css的某一标签</li>
+        <li>.class li</li>
+        <li id="idli">.class #id</li>
+    </ol>
+    <hr>
+    <ol class="test1">
+        <li class="aa">11</li>
+        <div class="bb">div1</div>
+        <div class="cc">div2</div>
+        <li>22</li>
+        <li>33</li>
+    </ol>
+</body>
+</html>

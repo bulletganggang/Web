@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>01_位移</title>
+    <style>
+        body {
+            font-size: 25px;
+        }
+        .outer {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 0 auto;
+            margin-top: 100px;
+            position: relative;
+        }
+        .inner1 {
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+            /* 水平位移 */
+            /* transform: translateX(50px); */
+
+            /* 垂直位移 */
+            /* transform: translateY(50px); */
+
+            /* 水平+垂直位移 */
+            transform: translate(-50px,-50px);
+        }
+        /* 可以让盒子水平垂直居中 */
+        .inner2 {
+            width: 60px;
+            height: 60px;
+            background-color: orange;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .inner3 {
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+            transform: scale(1.5);
+        }
+        span {
+            display: inline-block;
+            font-size: 20px;
+            transform: scale(0.5);
+        }
+        .inner4 {
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+            /* transform: rotateZ(-30deg); */
+            transform: rotate(30deg);
+        }
+        .inner5 {
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+            transform:translate(100px,100px) rotate(30deg);
+        }
+        .inner6 {
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+            /* 通过关键词调整变换原点 */
+            /* transform-origin: right bottom; */
+
+            /* 通过具体像素值调整变换原点 */
+            /* transform-origin: 50px 50px; */
+
+            /* 通过百分比调整变换原点 */
+            /* transform-origin: 25% 25%; */
+
+            /* 只给一个值，默认为X轴，Y轴默认50% */
+            /* transform-origin:top; */
+
+            /* transform-origin: right top; */
+
+            /* 变换原点位置的改变对 旋转 有影响 */
+            /* transform: rotate(0deg); */
+
+            /* 变换原点位置的改变对 缩放 有影响 */
+            /* transform: scale(1.3); */
+
+            /* 变换原点位置的改变对 位移 没有影响 */
+            /* transform: translate(100px,100px) */
+        }
+        .test {
+            width: 50px;
+            height: 100px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <p>translate位移，transform: translate(-50px,-50px)</p>
+    <div class="outer">
+        <div class="inner1">你好啊</div>
+    </div>
+    <p>
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        可以让盒子水平垂直居中
+    </p>
+    <div class="outer">
+        <div class="inner2">你好啊</div>
+    </div>
+    <hr>
+    <p>scale缩放，transform: scale(1.5)</p>
+    <div class="outer">
+        <div class="inner3">你好啊</div>
+    </div>
+    <span>好</span>
+    <hr>
+    <p>rotate旋转，transform: rotate(30deg)</p>
+    <div class="outer">
+        <div class="inner4">你好啊</div>
+    </div>
+    <hr>
+    <p>可以把上面三个结合一起写为复合属性，如transform:translate(100px,100px) rotate(30deg)，旋转放在最后</p>
+    <div class="outer">
+        <div class="inner5">你好啊</div>
+    </div>
+    <hr>
+    <div class="outer">
+        <div class="inner6">
+            <div class="test">你好啊</div>
+        </div>
+    </div>
+    <p>transform-origin设置原点位置，变换原点位置的改变对 旋转和缩放 有影响，对 位移 没影响</p>
+</body>
+</html>

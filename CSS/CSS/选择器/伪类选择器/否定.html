@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>否定伪类</title>
+    <style>
+        * {
+            font-size: 25px;
+        }
+        div>p:not(.aa) {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>div>p:not(.class)的意思是</p>
+        <p>选中div中不是class类名的p元素</p>
+        <p>同理，也可以将.class替换成[title]</p>
+        <p>div>p:not(:first-child)意思是</p>
+        <p>排除第一个孩子p</p>
+        <p class="aa">5</p>
+        <p class="aa">6</p>
+    </div>
+</body>
+</html>

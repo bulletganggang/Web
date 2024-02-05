@@ -1,0 +1,387 @@
+/* 基础设置 */
+.container {
+    width: 1190px;
+    margin: 0 auto;
+}
+
+/* #region 顶部导航条start */
+.topbar {
+    height: 30px;
+    background-color: #ECECEC;
+}
+
+.welcome {
+    height: 30px;
+    line-height: 30px;
+    font-size: 0;
+    color: #666666;
+}
+
+.welcome span,
+.welcome a {
+    font-size: 12px;
+}
+
+.welcome .hello {
+    margin-right: 28px;
+}
+
+.welcome .login {
+    padding-right: 10px;
+    border-right: 1px solid #666;
+}
+
+.welcome .register {
+    margin-left: 10px;
+}
+
+.topbar-nav .list {
+    height: 30px;
+    line-height: 30px;
+}
+
+.topbar-nav .list li {
+    font-size: 12px;
+}
+
+.topbar-nav a {
+    border-right: 1px solid #666;
+    padding: 0 15px;
+}
+
+.topbar-nav .list li:first-child a {
+    padding-left: 0;
+}
+
+.topbar-nav .list li:last-child a {
+    padding-right: 0;
+    border: 0;
+}
+
+/* #endregion 顶部导航条end */
+
+/* #region 头部start */
+.header {
+    height: 120px;
+}
+
+.header .search form {
+    margin: 42px 0;
+    /* line-height: 120px; */
+    font-size: 0;
+}
+
+.header .search input {
+    width: 508px;
+    height: 34px;
+    border: 1px solid #DD302D;
+}
+
+.header .search button {
+    width: 80px;
+    height: 36px;
+    background-color: #DD302D;
+    vertical-align: top;
+    background-image: url(../../设计稿/assets/serch_icon.png);
+    background-repeat: no-repeat;
+    background-position: 28px 6px;
+}
+
+/* #endregion 头部end */
+
+/* #region 主导航start */
+.main-nav {
+    height: 48px;
+    border-bottom: 1px solid #DD302D;
+}
+
+.main-nav .all-types {
+    background-color: #DD302D;
+    height: 48px;
+    width: 190px;
+    text-align: center;
+    line-height: 48px;
+    font-size: 16px;
+    color: white;
+}
+
+.main-nav-list {
+    line-height: 48px;
+}
+
+.main-nav-list li {
+    float: left;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.main-nav-list li a{
+    color: #333;
+}
+
+/* #endregion 主导航end */
+
+/* #region 内容区start */
+.main-content {
+    margin-top: 10px;
+}
+
+/* 侧边导航 */
+.main-content .side-nav {
+    width: 190px;
+    height: 458px;
+    background-color: #F4F4F4;
+    position: relative;
+}
+
+.main-content .side-nav li {
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 16px;
+}
+
+.main-content .side-nav li:hover {
+    background: #DD302D;
+}
+
+.main-content .side-nav li:hover .second-menu{
+    display: block;
+}
+
+.main-content .side-nav li a {
+    color: #333;
+}
+
+.main-content .side-nav li:hover>a{
+    color: white;
+}
+
+/* 二级菜单 */
+.second-menu {
+    width: 700px;
+    height: 458px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 190px;
+    display: none;
+}
+
+.side-nav .second-menu dl {
+    height: 36px;
+    line-height: 36px;
+}
+
+.side-nav .second-menu dl:first-child {
+    margin-top: 10px;
+}
+
+.side-nav .second-menu dl a{
+    color: #666;
+}
+
+.side-nav .second-menu dt {
+    float: left;
+    margin-left: 20px;
+    width: 70px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.side-nav .second-menu dd {
+    float: left;
+}
+
+.side-nav .second-menu dd a {
+    padding: 0 10px;
+    border-left: 1px solid #666;
+}
+
+/* 中间图片 */
+.main-content .banner {
+    width: 690px;
+    height: 458px;
+    background-color: wheat;
+    margin: 0 10px;
+}
+
+.main-content .side-other {
+    width: 290px;
+    height: 458px;
+}
+
+/* 右侧快报 */
+.side-other .message {
+    width: 260px;
+    height: 156px;
+    padding: 0 14px;
+    border: #D9D9D9 1px solid;
+}
+
+.side-other .message .title{
+    height: 38px;
+    line-height: 38px;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.side-other .message .title span{
+    font-size: 14px;
+}
+
+.side-other .message .title a{
+    font-size: 12px;
+}
+
+.side-other .msg-list li {
+    height: 26px;
+    line-height: 26px;
+}
+
+.side-other .other-nav {
+    margin-top: 10px;
+    width: 280px;
+    height: 261px;
+    /* background-color: aqua; */
+    padding: 16px 5px;
+    padding-bottom: 13px;
+}
+
+.other-nav-list li {
+    width: 48px;
+    height: 70px;
+    /* background-color: gold; */
+    float: left;
+    margin: 0 11px;
+    margin-bottom: 17px;
+    text-align: center;
+}
+
+.other-nav-list .pic {
+    width: 48px;
+    height: 48px;
+    background-image: url(../../设计稿/assets/精灵图-侧边功能.png);
+}
+
+.other-nav-list li:nth-child(2) .pic {
+    background-position: -48px 0; 
+}
+
+/* #endregion 内容区end */
+
+/* #region 秒杀start */
+.seckill{
+    margin-top: 10px;
+}
+
+.seckill .seckill-list li {
+    float: left;
+    margin-right: 11px;
+}
+
+.seckill .seckill-list li:last-child {
+    margin-right: 0 ;
+}
+
+/* #endregion 秒杀end */
+
+/* #region 楼层start */
+.floor {
+    margin-top: 48px;
+}
+
+/* 上部分 */
+
+.floor .floor-nav  {
+    height: 30px;
+    line-height: 30px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #DD302D;
+}
+
+.floor .floor-name {
+    font-size: 20px;
+    color: black;
+}
+
+.floor .floor-nav-list li{
+    font-size: 16px;
+    color: #666;
+    float: left;
+}
+
+.floor .floor-nav-list li a {
+    padding: 0 10px;
+    border-right: 1px solid #666;
+}
+
+.floor .floor-nav-list li:first-child a{
+    padding-left: 0;
+}
+
+.floor .floor-nav-list li:last-child a{
+    border-right: 0;
+    padding-right: 0;
+}
+
+/* 下部分 */
+.floor-info .item {
+    float: left;
+}
+
+.floor-info .item1 {
+    width: 230px;
+    height: 432px;
+    background-color: #F4F4F4;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.floor-info .item1-list {
+    margin-bottom: 30px;
+}
+
+.floor-info .item1 .item1-list li {
+    width: 90px;
+    height: 22px;
+    padding-bottom: 3.5px;
+    border-bottom: 1px solid #D9D9D9;
+    font-size: 16px;
+    text-align: center;
+}
+
+.floor-info .item1 .item1-list li:nth-child(2n-1) {
+    float: left;
+}
+
+.floor-info .item1 .item1-list li:nth-child(2n) {
+    float: right;
+}
+
+.floor-info .item1 .item1-list li:nth-child(3),
+.floor-info .item1 .item1-list li:nth-child(4) {
+    margin: 14.4px 0;
+}
+
+.floor-info .item2 {
+    width: 340px;
+    height: 432px;
+}
+
+.floor-info .item3, 
+.floor-info .item4,
+.floor-info .item5 {
+    width: 206px;
+    height: 432px;
+}
+
+.floor-info .item4 {
+    border: 1px solid #E2E2E2;
+    border-top: 0;
+}
+
+
+/* #endregion 楼层end */
+
+
+

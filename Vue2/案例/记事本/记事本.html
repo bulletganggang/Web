@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/index.css" />
+  <title>记事本</title>
+</head>
+
+<body>
+
+  <!-- 主体区域 -->
+  <section id="app">
+    <!-- 输入框 -->
+    <header class="header">
+      <h1>记事本</h1>
+      <input @keyup.enter="add" placeholder="请输入任务" class="new-todo" v-model="todo">
+      <button class="add" @click="add">添加任务</button>
+    </header>
+
+    <!-- 列表区域 -->
+    <section class="main">
+      <ul class="todo-list">
+        <li class="todo" v-for="(ele,index) in list" :key="ele.id">
+          <div class="view">
+            <span class="index">{{index+1}}</span> <label>{{ele.name}}</label>
+            <!-- 通过ele.id删除会更加安全 -->
+            <button @click="del(ele.id)" class="destroy"></button>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 统计和清空 -->
+    <footer class="footer" v-show="list.length">
+      <!-- 统计 -->
+      <span class="todo-count">合 计:<strong> {{list.length}} </strong></span>
+      <!-- 清空 -->
+      <button class="clear-completed" @click="list = []">
+        清空任务
+      </button>
+    </footer>
+  </section>
+
+  <!-- 底部 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script>
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        todo: '',
+        list: [
+          { id: 1, name: '111' },
+          { id: 2, name: '222' },
+          { id: 3, name: '333' },
+        ]
+      },
+      methods: {
+        del(id) {
+          // 通过filter，筛选出item.id不等于我们要删除的id，也就是把不需要删除的item提取出来
+          this.list = this.list.filter(item => item.id !== id)
+        },
+        add() {
+          if (this.todo) {
+            if (this.list.length) {
+              this.list.push(
+                { id: this.list[this.list.length - 1].id + 1, name: this.todo }
+              )
+            }
+            else {
+              this.list.push(
+                { id: 1, name: this.todo }
+              )
+            }
+            this.todo = ''
+          }
+        },
+      },
+    })
+
+  </script>
+</body>
+
+</html>

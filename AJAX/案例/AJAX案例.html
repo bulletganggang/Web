@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX案例</title>
+</head>
+
+<body>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <!-- <script>
+    const p = new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest()
+      xhr.open('GET', 'http://hmajax.itheima.net/api/province')
+      xhr.addEventListener('loadend', () => {
+        console.log(xhr.status);
+        if (xhr.status >= 200 && xhr.status < 300) {
+          resolve(xhr.response)
+        }
+        else {
+          reject(new Error(xhr.response))
+        }
+      })
+      xhr.send()
+    })
+    p.then(result => {
+      console.log(result);
+    }).catch(error => {
+      console.log(error.message);
+    })
+  </script> -->
+
+  <!-- <script>
+    // 运用xhr和promise实现axios
+    function myAxios(config) {
+      return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest()
+
+        // 有查询参数则修改地址
+        if (config.params) {
+          const paramsObj = new URLSearchParams(config.params)
+          config.url = config.url + '?' + paramsObj.toString()
+        }
+
+        xhr.open(config.method || 'GET', config.url)
+        xhr.addEventListener('loadend', () => {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            resolve(JSON.parse(xhr.response))
+          }
+          else {
+            reject(new Error(xhr.response))
+          }
+        })
+
+        // 有data
+        if (config.data) {
+          xhr.setRequestHeader('Content-Type', 'application/json')
+          xhr.send(JSON.stringify(config.data))
+        }
+        else xhr.send()
+      })
+    }
+
+    myAxios({
+      url: 'http://hmajax.itheima.net/api/area',
+      // params: {
+      //   pname: '广东省',
+      //   cname: '深圳市'
+      // },
+      data: {
+        pname: '广东省',
+        cname: '深圳市'
+      }
+    }).then(result => {
+      console.log(result.list);
+    }).catch(error => {
+      console.log(error.message);
+    })
+  </script> -->
+
+  <!-- <script>
+    const p1 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('111')
+      }, 1000);
+    })
+
+    const p2 = p1.then(result => {
+      console.log(result)
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(result + '222')
+        }, 1000);
+      })
+    })
+
+    const p3 = p2.then(result => {
+      console.log(result)
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(result + '333')
+        }, 1000);
+      })
+    })
+
+    p3.then(result => {
+      setTimeout(() => {
+        console.log(result);
+      }, 1000);
+    })
+  </script> -->
+
+  <!-- <script>
+    axios({
+      url: 'http://hmajax.itheima.net/api/province'
+    }).then((result) => {
+      console.log(result.data.list);
+      const pname = result.data.list[0]
+      return axios({
+        url: 'http://hmajax.itheima.net/api/city',
+        params: {
+          pname
+        }
+      })
+    }).then(result => {
+      console.log(result.data.list);
+      const cname = result.data.list[0]
+      return axios({
+        url: 'http://hmajax.itheima.net/api/area',
+        params: {
+          pname,
+          cname
+        }
+      })
+    }).then(result => {
+      console.log(result);
+    })
+  </script> -->
+
+  <script>
+    const code = [1, 2, 3, 4]
+    const pCode = code.map(ele => {
+      return axios({ url: 'http://hmajax.itheima.net/api/province', params: { city: ele } })
+    })
+    const p = Promise.all(pCode)
+    p.then(result => {
+      console.log(result);
+    })
+  </script>
+
+</body>
+
+</html>

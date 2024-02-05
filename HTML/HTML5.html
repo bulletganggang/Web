@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5</title>
+    <style>
+        body {
+            font-size: 25px;
+        }
+
+        video {
+            width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="buju">
+        <h1>布局</h1>
+        <header>
+            <h1>header头部</h1>
+        </header>
+        <hr>
+        <nav>
+            <a href="#">nav导航</a>
+        </nav>
+        <hr>
+        <article>
+            <h2>article文章</h2>
+            <section>
+                <h3>section为文章中的某一段</h3>
+                <p>111</p>
+            </section>
+            <section>
+                <h3>section为文章中的某一段</h3>
+                <p>111</p>
+            </section>
+            <section>
+                <h3>section为文章中的某一段</h3>
+                <p>111</p>
+            </section>
+        </article>
+        <hr>
+        <aside>
+            <nav>
+                <ul>
+                    <li>aside侧边栏</li>
+                    <li>aside侧边栏</li>
+                    <li>aside侧边栏</li>
+                    <li>aside侧边栏</li>
+                </ul>
+            </nav>
+        </aside>
+        <hr>
+        <footer>
+            <h2>footer为页脚</h2>
+        </footer>
+        <hr>
+    </div>
+    <div class="zhuangtai">
+        <h1>状态</h1>
+        <span>meter类似手机电量的状态栏标签 </span>
+        <meter max="100" min="0" value="77" low="10" high="20" optimum="90"></meter>
+        <p>meter max="100" min="0" value="77" low="10" high="20"
+            optimum="90"，表示最大值100，最小值0，10以下为危险，10~20为警告，20以上为正常，当前值为77</p>
+        <span>progress类似进度条</span>
+        <progress max="100" value="20"></progress>
+        <p>progress max="100" value="20",最大为100，当前为20</p>
+        <hr>
+    </div>
+    <div class="list">
+        <h1>列表</h1>
+        <form action="#">
+            <input type="text" list="datalist">
+            <button>搜索</button>
+        </form>
+        <datalist id="datalist">
+            <option value="abc">abc</option>
+            <option value="bce">bce</option>
+            <option value="cef">cef</option>
+            <option value="efg">efg</option>
+        </datalist>
+        <p>datalist类似于填写框自动提示的内容，也会根据某一字搜索，识别关键字</p>
+        <details>
+            <summary>details展示问题和答案，summary为问题，可展开看答案</summary>
+            <p>这是一个解释</p>
+        </details>
+        <hr>
+    </div>
+    <div class="wenben">
+        <h1>文本</h1>
+        <ruby>
+            <span>ruby可以为东西加上"拼音"</span>
+            <rt>rt为东西的解释rt为东西的解释</rt>
+        </ruby>
+        <p><mark>mark</mark>为标记属性，可以标记某一单词</p>
+        <hr>
+    </div>
+    <div class="form">
+        <h1>表单控件</h1>
+        <form action="">
+            账号：<input type="text" name="account" placeholder="请输入账号" required autocomplete="on" pattern="\w{6}">
+            <br>
+            密码：<input type="password" name="pwd" placeholder="请输入密码" required pattern="\w{6}">
+            <br>
+            性别：
+            <input type="radio" value="male" name="gender" required>男
+            <input type="radio" value="female" name="gender">女
+            <br>
+            爱好：
+            <input type="checkbox" value="smoke" name="hobby">抽烟
+            <input type="checkbox" value="drink" name="hobby" required>喝酒
+            <input type="checkbox" value="perm" name="hobby">烫头
+            <br>
+            其他：<textarea name="other" placeholder="请输入密码" required pattern="\w{6}"></textarea>
+            <br>
+            <button>提交</button>
+        </form>
+        <p>required表示该项为必填项，radio填写表示单选必须选一个，checkbox填写表示此项必须选上</p>
+        <p>autofocus表示打开页面自动对焦的选项</p>
+        <p>autocomplete="on"表示展示先前填写过的选项，只能用在text上</p>
+        <p>pattern为正则表达式</p>
+        <hr>
+    </div>
+    <div class="input">
+        <h1>input新增type</h1>
+        <p>补充：form加上novalidate，就不会对数据进行验证</p>
+        <form action="">
+            email邮箱 <input type="email" name="email">
+            <br>
+            url网站 <input type="url" name="url">
+            <br>
+            number数值,step表示一次增加或者减少的步长,也可以设置max和min值 <input type="number" name="number" step="2" max="80" min="20">
+            <br>
+            search搜索 <input type="search" name="keyword">
+            <br>
+            tel电话 <input type="tel" name="phone">
+            <br>
+            range范围，也有max和min，value默认值 <input type="range" name="range" max="80" min="20" value="77">
+            <br>
+            color颜色 <input type="color" name="color">
+            <br>
+            date日期 <input type="date" name="date">
+            <br>
+            month月份 <input type="month" name="month">
+            <br>
+            week周 <input type="week" name="week">
+            <br>
+            time时间 <input type="time" name="time">
+            <br>
+            datetime-local日期+时间 <input type="datetime-local" name="datetime-local">
+            <br>
+            <button>提交</button>
+            <hr>
+        </form>
+    </div>
+    <div class="video">
+        <h1>video视频</h1>
+        <p>视频width和height不一起使用，让他自适应</p>
+        <p>controls表示给出视频的播放、控制键</p>
+        <p>muted表示视频自动静音</p>
+        <p>autoplay表示自动播放，前提是muted</p>
+        <p>loop表示循环播放</p>
+        <p>poster="src"表示视频封面，不能和autoplay一起用，并且封面比例最好和视频一样</p>
+        <video src="素材/video.mp4" controls muted loop poster="../CSS/CSS/Pic/OIP-C.jpg"></video>
+        <hr>
+    </div>
+    <div class="audio">
+        <h1>audio音频</h1>
+        <p>同video也有controls muted autoplay，无width height poster</p>
+        <audio src="素材/audio.mp3" controls></audio>
+        <hr>
+    </div>
+</body>
+
+</html>

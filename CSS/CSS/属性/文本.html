@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本</title>
+    <style>
+        body {
+            font-size: 25px; 
+        }
+        .ls {
+            letter-spacing: 20px;
+        }
+        .ws {
+            word-spacing: 20px;
+        }
+        .td1 {
+            text-decoration: overline;
+        }
+        .td2 {
+            text-decoration: underline;
+        }
+        .td3 {
+            text-decoration: line-through;
+        }
+        .td4 {
+            text-decoration: none;
+        }
+        .ti {
+            text-indent: 50px;
+        }
+        .ta {
+            background-color: yellow;
+            text-align: center;
+        }
+        .d1{
+            font-size: 30px;
+            background-color: yellow;
+            line-height: 60px;
+        }
+        .d1::first-line {
+            background-color: red;
+        }
+        .d2{
+            font-size: 60px;
+            background-color: yellow;
+        }
+        span {
+            background-color: aqua;
+            font-size: 30px;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <div class="ls">abcletter-spacing各个字符间的距离</div>
+    <div class="ws">word-spacing各个单词间的距离</div>
+    <hr>
+    <p>text-decoration</p>
+    <div class="td1">overline</div>
+    <div class="td2">underline</div>
+    <div class="td3">line-through</div>
+    <a href="#" class="td4">text-decoration: none去除链接的下标签</a>
+    <br>
+    <hr>
+    <p>text-indent</p>
+    <div class="ti">缩进几格就是几*字体px</div>
+    <hr>
+    <p>text-align</p>
+    <div class="ta">left right center</div>
+    <hr>
+    <div class="d1">这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试</div>
+    <p>line-height为一行的高度，即字符上+字符下+字符的总高度，需要大于font-size 1.5~2，span也可以当成文字使用line-height</p>
+    <p>有四种写法，直接写px，用的最多的是写数字的，含义是font-size多少的倍数</p>
+    <hr>
+    <div class="d2">这是一个测试这是一个测试<span>添加一个span元素</span> </div>
+    <p>vertical-align决定了相对位置，需要注意的是，使用vertical-align的是同一行元素之间，或表格单元格内的文字</p>
+</body>
+</html>

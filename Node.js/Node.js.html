@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Node.js</title>
+  <style>
+    * {
+      font-size: 25px;
+    }
+
+    h1 {
+      font-size: 33px;
+    }
+
+    h3 {
+      font-size: 28px;
+    }
+
+    h4 {
+      font-size: 26px;
+    }
+
+    p {
+      font-size: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>fs模块-读写文件</h1>
+  <p>模块类似于插件，封装了属性和方法，nodejs自带</p>
+  <p>加载fs模块对象 const fs = require('fs')</p>
+  <p>写入内容 fs.writeFile('文件路径','写入内容',err => {错误后回调函数})</p>
+  <p>如果文件不存在，会自动创建一个</p>
+  <p>读取内容 fs.readFile('文件路径',(err,data) => {读取后回调函数})</p>
+  <p>data得到的是buffer，数据流的形式，需要转换成data.toString()</p>
+  <!-- <script>
+    const fs = require('fs')
+    fs.writeFile('test.txt', '778', err => {
+      if (err) console.log(err)
+      else console.log('111');
+    })
+
+    fs.readFile('test.txt', (err, data) => {
+      console.log(data.toString())
+    })
+  </script> -->
+  <hr>
+  <h1>path模块-路径处理</h1>
+  <p>相对路径path，在node终端可能会出错，所以使用绝对路径</p>
+  <p>path.join()会使用特定平台的分隔符，配合__dirname可以组成目标文件的绝对路径</p>
+  <p>path.join(__dirname,'../test.txt') 可以获得上一级路径的文件</p>
+  <hr>
+  <h1>http模块-创建web服务</h1>
+  <p>加载http模块const http = require("http")
+    创建web服务对象const server = http.createServer()</p>
+  <p>监听request请求事件，设置响应头和响应体server.on('request', (req, res) => {
+    res.setHeader('Content-Type', 'text/plain;charset=utf-8')
+    res.end('778')
+    })</p>
+  <p>配置端口号并启动服务server.listen(3000, () => {
+    console.log(123);
+    })
+  </p>
+  <p>连接服务后，在浏览器的http://localhost:3000/ 网页内容为res.end('')中的内容</p>
+  <p>listen中的事件会立即触发，因为启动服务是马上的</p>
+  <hr>
+  <h1>CommonJS标准</h1>
+  <p>导出 module.exports = {属性名1: 对象1}</p>
+  <p>导入 const obj = require('模块名或路径') 如果是http、path、fs写模块，自定义的就写路径，obj为对方导出的对象</p>
+  <p>需要注意的是，写路径，同一个文件夹下也要写./</p>
+  <p>文件后缀为.cjs强制为CommonJS标准</p>
+  <hr>
+  <h1>ECMAScript标准</h1>
+  <p>需要在package中选择 "type": "module"，并且Common和ECMA只能选择一个</p>
+  <p>默认导出 export.default {属性名1: 对象1}</p>
+  <p>默认导入 import 变量名 from '模块名或路径'</p>
+  <p>命名导出 export const xx = 'xx</p>
+  <p>命名导入 import {xx} from '模块名或路径'</p>
+  <p>按需加载使用命名，比如只需要obj中某一个方法即可使用命名</p>
+  <p>文件后缀为.mjs强制为ECMAScript标准</p>
+  <hr>
+  <h1>包的概念</h1>
+  <p>将模块，代码，其他资料聚合成的文件夹就是包</p>
+  <p>引入一个包，是自动引入包中的package.json中的main的值，也就是一个文件，里面的所有方法</p>
+  <h2>npm</h2>
+  <p>npm init -y 在空白文件夹初始化package.json，npm i 软件包 可以下载软件包</p>
+  <p>下载包之后，package.json中会有下载的包的信息</p>
+  <p>下载完软件包，注意只能在同一个文件夹下才能使用</p>
+  <p>require引用写的是下载的软件包的名字，不是路径，调用require原有的和npm下载的都是写名字，只有引用的才需要写路径</p>
+  <p>由于npm下载比传软件包快得多，所以可能传来的文件只有文件没有软件包，运行命令npm i即可自动下载软件包，因为package.json记录着下载的信息</p>
+</body>
+
+</html>

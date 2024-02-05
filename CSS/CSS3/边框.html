@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>边框</title>
+    <style>
+        * {
+            font-size: 25px;
+        }
+        .box1 {
+            width: 400px;
+            height: 400px;
+            border: 2px solid black;
+            margin: 0 auto;
+
+            /* border-radius: 200px; */
+            /* border-radius: 50%; */
+
+            /* border-top-left-radius: 100px; */
+            /* border-top-right-radius: 50px; */
+            /* border-bottom-right-radius: 20px; */
+            /* border-bottom-left-radius: 10px; */
+
+            /* border-top-left-radius: 100px 50px; */
+            /* border-top-right-radius: 50px 20px; */
+            /* border-bottom-right-radius: 20px 10px; */
+            /* border-bottom-left-radius: 10px 5px; */
+
+            border-radius:100px 50px 20px 10px / 50px 20px 10px 5px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <p>border-radius可以边框增加圆角，为width和height一半时，图形为圆形，单位可以写px和%</p>
+    <p>也可以单独写左上右下某一部分，但几乎不用</p>
+    <p>写一个值为圆形的半径，写两个值为椭圆，第一个值为椭圆的X 第二个为Y</p>
+</body>
+</html>

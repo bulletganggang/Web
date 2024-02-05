@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格</title>
+    <style>
+        body {
+            font-size: 25px;
+        }
+        table {
+            border: 2px green solid;
+            table-layout: fixed;
+            border-spacing: 10px;
+            border-collapse: separate;
+            width: 1800px;
+            empty-cells: hide;
+            caption-side: bottom;
+        }
+        td,
+        th {
+            border: 3px gold dotted;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>标题</caption>
+        <thead>
+            <tr>
+                <th>css可以设置边框属性</th>
+                <th>border-width控制边框大小</th>
+                <th>border-color控制颜色</th>
+                <th>border-style控制边框样式</th>
+                <th>一般使用复合属性border: 2px green solid</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>55</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>55</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td></td>
+                <td>55</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>55</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>除了表格，表格单元格、div、span、h都可以使用border</p>
+    <p>table-layout设置table单元格宽度，auto为根据长度自动调整，fixed为固定相同长度</p>
+    <p>border-spacing控制单元格间的距离</p>
+    <p>border-collapse合并相邻单元格</p>
+    <p>empty-cells隐藏无内容的单元格</p>
+    <p>caption-side设置标题位置</p>
+</body>
+</html>

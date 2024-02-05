@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小测试</title>
+    <style>
+        /* 先弄出通配属性，方便之后直接用 */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .leftfix {
+            float: left; 
+        }
+        .rightfix {
+            float: right;
+        }
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        /* 创建最外面大容器，可以提前观察页面，看看哪些属性是共有的，可以在这里加上，如text-align: center; */
+        .container {
+            width: 960px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        /* 头部 */
+        .logo,
+        .banner1,
+        .banner2 {
+            height: 80px;
+            background-color: #ccc;
+            line-height: 80px;
+        }
+        .logo,
+        .banner2 {
+            width: 200px;
+        }
+        .banner1 {
+            width: 540px;
+            margin: 0 10px;
+        }
+        /* 菜单 */
+        .menu {
+            height: 30px;
+            background-color: #ccc;
+            margin: 10px 0;
+            line-height: 30px;
+        }
+        /* 内容 */
+        .item1,
+        .item2 {
+            height: 198px;
+            width: 368px;
+            line-height: 198px;
+            border: 1px black solid;
+        }
+        .item2 {
+            margin: 0 10px;
+        }
+        .item3 {
+            height: 198px;
+            width: 178px;
+            border: 1px black solid;
+            margin-right: 10px;
+            margin-top: 10px;
+            line-height: 198px;
+        }
+        .item4,
+        .item5 {
+            width: 198px;
+            height: 128px;
+            border: 1px solid black;
+            line-height: 128px;
+        }
+        .item5 {
+            margin: 10px 0;
+        }
+        /* 页脚 */
+        .footer {
+            height: 60px;
+            background-color: #ccc;
+            line-height: 60px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 最外面的大容器 -->
+    <div class="container">
+        <!-- 头部 -->
+        <div class="page-header clearfix">
+            <div class="logo leftfix">logo</div>
+            <div class="banner1 leftfix">banner1</div>
+            <div class="banner2 leftfix">banner2</div>
+        </div>
+        <!-- 菜单 -->
+        <div class="menu">菜单</div>
+        <!-- 内容 -->
+        <div class="content clearfix">
+            <!-- 左侧 -->
+            <div class="left leftfix">
+                <!-- 上方 -->
+                <div class="top clearfix">
+                    <div class="item1 leftfix">栏目一</div>
+                    <div class="item2 leftfix">栏目二</div>
+                </div>
+                <!-- 下方 -->
+                <div class="bottom clearfix">
+                    <div class="item3 leftfix">栏目三</div>
+                    <div class="item3 leftfix">栏目四</div>
+                    <div class="item3 leftfix">栏目五</div>
+                    <div class="item3 leftfix">栏目六 </div>
+                </div>
+            </div>
+            <!-- 右侧 -->
+            <div class="right rightfix">
+                <div class="item4">栏目七</div>
+                <div class="item5">栏目八</div>
+                <div class="item4">栏目九</div>
+            </div>
+        </div>
+        <div class="footer">页脚</div>
+    </div>
+</body>
+</html>

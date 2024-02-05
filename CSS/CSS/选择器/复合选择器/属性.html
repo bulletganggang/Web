@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性选择器</title>
+    <style>
+        * {
+            font-size: 25px;
+        }
+        [title] {
+            color: red;
+        }
+        [title="div3"] {
+            color: aqua;
+        }
+        [title^="a"] {
+            color: gold;
+        }
+        [title$="a"] {
+            color: gray;
+        }
+        [title*="e"] {
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+    <div title="div1">属性选择器是对属性进行操作，style中为[属性]{}</div>
+    <div title="div2">只找属性，不在乎属性值</div>
+    <div title="div3">以及[属性：属性值]的具体写法</div>
+    <div title="abc">[属性^='a']表示选择第一个字母为a的属性</div>
+    <div title="cba">[属性$='a']表示选择最后一个字母为a的属性</div>
+    <div title="eee">[属性*='e']表示选择属性值中有e的属性</div>
+</body>
+</html>

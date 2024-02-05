@@ -1,0 +1,11 @@
+{
+  "name": "node.js",
+  "version": "1.0.0",
+  "description": "Node.js学习",
+  "main": "Node.js.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Obsessed7",
+  "license": "MIT"
+}

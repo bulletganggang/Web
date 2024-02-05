@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI&目标伪类</title>
+    <style>
+        * {
+            font-size: 25px;
+        }
+        input:checked {
+            width: 60px;
+            height: 60px;
+        }
+        div {
+            background-color: green;
+            height: 300px;
+        }
+        div:target {
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    input:checked可以判断复选框是否被选择，对选择的进行css <input type="checkbox"> 1 <input type="checkbox"> 2 <input type="checkbox">
+    <br>
+    div:target的意思是，可以在你点击锚点去往div的时候，那个div块进行css
+    <a href="#a">1</a>
+    <a href="#b">2</a>
+    <a href="#c">3</a>
+    <a href="#d">4</a>
+    <a href="#e">5</a>
+    <a href="#f">6</a>
+    <div id="a">1</div>
+    <br>
+    <div id="b">2</div>
+    <br>
+    <div id="c">3</div>
+    <br>
+    <div id="d">4</div>
+    <br>
+    <div id="e">5</div>
+    <br>
+    <div id="f">6</div>
+    <br>
+</body>
+</html>

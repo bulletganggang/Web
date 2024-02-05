@@ -1,0 +1,94 @@
+/* 基础设置 */
+.container {
+    width: 1190px;
+    margin: 0 auto;
+}
+
+/* #region 顶部导航条start */
+.topbar {
+    height: 30px;
+    background-color: #ECECEC;
+}
+
+.welcome {
+    height: 30px;
+    line-height: 30px;
+    font-size: 0;
+    color: #666666;
+}
+
+.welcome span,
+.welcome a {
+    font-size: 12px;
+}
+
+.welcome .hello {
+    margin-right: 28px;
+}
+
+.welcome .login {
+    padding-right: 10px;
+    border-right: 1px solid #666;
+}
+
+.welcome .register {
+    margin-left: 10px;
+}
+
+.topbar-nav .list {
+    height: 30px;
+    line-height: 30px;
+}
+
+.topbar-nav .list li {
+    font-size: 12px;
+}
+
+.topbar-nav a {
+    border-right: 1px solid #666;
+    padding: 0 15px;
+}
+
+.topbar-nav .list li:first-child a {
+    padding-left: 0;
+}
+
+.topbar-nav .list li:last-child a {
+    padding-right: 0;
+    border: 0;
+}
+
+/* #endregion 顶部导航条end */
+
+/* #region 头部start */
+.header {
+    height: 120px;
+    background-color: skyblue;
+}
+
+.header .search form {
+    margin: 42px 0;
+    /* line-height: 120px; */
+    font-size: 0;
+}
+
+.header .search input {
+    width: 508px;
+    height: 34px;
+    border: 1px solid #DD302D;
+}
+
+.header .search button {
+    width: 80px;
+    height: 36px;
+    background-color: #DD302D;
+    vertical-align: top;
+    background-image: url(../../设计稿/assets/serch_icon.png);
+    background-repeat: no-repeat;
+    background-position: 28px 6px;
+}
+/* #endregion 头部end */
+
+
+
+
